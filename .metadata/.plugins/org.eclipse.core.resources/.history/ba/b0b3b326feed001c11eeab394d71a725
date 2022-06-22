@@ -1,0 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+	<%
+		// DB연결
+		Class.forName("com.mysql.jdbc.Driver");
+  		String db="jdbc:mysql://localhost:3306/first";
+  		Connection conn=DriverManager.getConnection(db,"root","1234");
+		// request id값
+		String id = request.getParameter("id");
+		
+		// 쿼리생성
+		String sql = "select * from gesipan where id=?";
+		
+		// 심부름꾼
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		
+		// 쿼리실행
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+	%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#del {
+		visibility : hidden;
+	}
+	
+	table {
+		border : 1px solid black;
+		font-size : 13px;
+	}
+	td {
+		border-right : 1px solid black;
+		border-top : 1px solid black;
+	}
+	td:last-child {
+		border-right : none;
+	}
+	tr {
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
+	}
+	#del_td {
+		visibility : hidden;
+	}
+	
+</style>
+<script>
+	function view(n) {
+		
+		if(n==0) {
+			document.getElementById("del").style.visibility="visible";
+			document.pkc.action="update.jsp";
+			document.pkc.submit.value="수정";
+		}
+		
+		else if(n==1) {
+			document.getElementById("del").style.visibility="visible";
+			document.pkc.action="delete.jsp";
+			document.pkc.submit.value="삭제";
+		}
+		else if(n==2){
+			location="list.jsp";
+		}
+		
+	}
+</script>
+</head>
+<body>
+	
+	
+	<table width="800" height="520" align="center">
+	<tr align="center" style="background:lightgray;">
+	<td height="40">제목</td> <!-- 6 -->
+	<td width="350"> <%=rs.getString("title") %> </td>
+	<td>작성일</td>
+	<td> <%=rs.getString("writeday") %></td>
+	<td width="60">조회수</td>
+	<td width="60"> <%=rs.getString("readnum") %></td>
+	</tr>
+	<tr>
+	<td height="40" >이메일</td> <!-- 4 -->
+	<td colspan="2" width="100"><%=rs.getString("mail") %></td>
+	<td>작성자</td>
+	<td colspan="2" width="200"><%=rs.getString("name") %></td>
+	</tr>
+	<tr>
+	<td colspan="1" height="400" width="80"> 내용 </td> <!-- 2 -->
+	<td colspan="5"><%=rs.getString("content") %></td>
+	</tr>
+	<tr> <!-- 3 -->
+	<td colspan="6" height="40" width="80" align="center"><input type="button" onclick="view(2)" value="목록">
+	<input type="button" onclick="view(0)" value="수정">
+	<input type="button" onclick="view(1)" value="삭제"></td>
+	</tr>	
+	<tr>
+	<td id="del_td" colspan="6" align="center"><form name="pkc" id="del" method="post" action="">
+	<input type="hidden" name="id" value="<%=id%>">
+	비밀번호 <input type="password" name="pwd">
+	<input type="submit" name="submit" value=""></td>
+	</form>
+	</tr>
+	</table>
+
+</body>
+</html>
+
+<% // close 
+	rs.close();
+	pstmt.close();
+	conn.close();
+%>

@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%
+		
+		// write_ok : 질문글을 테이블에 저장하고 list로 이동
+		
+		// DB연결
+		Class.forName("com.mysql.jdbc.Driver");
+  		String db="jdbc:mysql://localhost:3306/first";
+		Connection conn=DriverManager.getConnection(db,"root","1234");
+		
+		// request
+		request.setCharacterEncoding("utf-8");
+		String name = request.getParameter("name");
+		String pwd	= request.getParameter("pwd");
+		String content = request.getParameter("content");
+		String title = request.getParameter("title");
+		String grp = request.getParameter("grp");
+		int depth = Integer.parseInt(request.getParameter("depth")); 
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		
+		
+		// 쿼리생성  
+		String sql = "insert into qna(name,pwd,content,title,writeday,grp,depth,seq) values(?,?,?,?,now(),?,?,?)";
+		
+		// 심부름꾼
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, name);
+		pstmt.setString(2, pwd);
+		pstmt.setString(3, content);
+		pstmt.setString(4, title);
+		pstmt.setString(5, grp);
+		pstmt.setInt(6, depth);
+		pstmt.setInt(7, seq);
+			
+		// 쿼리실행
+		pstmt.executeUpdate();
+		
+		// close
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		// response
+		response.sendRedirect("list.jsp");
+		
+		
+%>

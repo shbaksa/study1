@@ -1,0 +1,28 @@
+간단한 게시판 만들기
+
+테이블명 : gesipan
+항목 : id 제목 이름 내용 이메일 조회수 작성일 비밀번호
+
+create table gesipan(
+id int auto_increment primary key,
+title char(10),
+name char(10),
+content char(100),
+mail char(50),
+readnum int default 0,
+writeday date,
+pwd char(10))
+
+
+
+
+
+write.jsp write_ok.jsp
+list.jsp
+content.jsp => 조회수증가
+수정
+삭제
+
+
+2. 입력폼과 수정폼에 값이 들어있지 않으면 경고창 (이름,이메일)
+3. 비밀번호를 추가

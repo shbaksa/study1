@@ -1,0 +1,8 @@
+select할때 읽어오는 레코드의 제한
+
+select * from board1 order by id desc limit 숫자;
+// select한  결과에서 위에서 부터 숫자만큼의 레코드만 가져오기
+
+limit  인덱스, 길이
+select * from board1 order by id desc limit 0,1;
+// select한 결과에서 인덱스번호 0부터 길이가 1만큼 가져오기

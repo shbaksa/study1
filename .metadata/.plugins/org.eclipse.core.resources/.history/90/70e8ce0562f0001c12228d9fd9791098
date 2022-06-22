@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function check() {
+		
+		// 태그를 클릭하여 함수를 호출하였을때 => body내의 요소를 변경하는 작업
+		// 클릭하는 태그와 요소를 변경할 태그가 동일하다면 this를 이용한다.
+		// 클릭요소와 작업요소가 틀리면 this X
+		document.getElementById("aa").style.color="red";
+	}
+</script>
+</head>
+<body>
+	<!-- this1.jsp  -->
+
+	<!-- this는 자바스크립트를 호출할때 자기 자신의 객체(태그)를 전달하는 방법 -->
+
+	<div onclick="check()">안녕하세요</div>
+	<p>
+	<hr>
+	<span id="aa"> 하하하 </span>
+</body>
+</html>

@@ -1,0 +1,16 @@
+package test;
+
+import java.util.Scanner;
+
+
+public class Main {
+	public static void main(String[] args) throws Exception  {
+		
+		DB_Task dt = new DB_Task();
+		
+		
+		dt.insert();
+		
+		
+	}
+}

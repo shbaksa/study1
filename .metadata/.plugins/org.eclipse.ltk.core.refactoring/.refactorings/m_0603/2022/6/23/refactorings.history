@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;db.DB_All1&apos; to &apos;DB_All_Ex&apos;&#x0D;&#x0A;- Original project: &apos;m_0603&apos;&#x0D;&#x0A;- Original element: &apos;db.DB_All1&apos;&#x0D;&#x0A;- Renamed element: &apos;db.DB_All_Ex&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DB_All1&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;db{DB_All1.java[DB_All1" matchStrategy="1" name="DB_All_Ex" qualified="false" references="true" similarDeclarations="false" stamp="1654221034854" textual="false" version="1.0"/>
+</session>

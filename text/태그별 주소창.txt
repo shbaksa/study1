@@ -1,0 +1,8 @@
+a태그 get
+http://localhost:8080/mw_0607/second2.jsp?num=99
+
+script 태그 get
+http://localhost:8080/mw_0607/second2.jsp?num=88
+
+form 태그 post
+http://localhost:8080/mw_0607/second2.jsp

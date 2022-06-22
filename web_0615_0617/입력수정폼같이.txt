@@ -1,0 +1,21 @@
+ 2폼 => 1폼
+자바스크립트를 통해
+입력 
+action = dat_write_ok.jsp
+bid는 dat테이블에 저장, content로 돌아올때
+name,pwd,content
+수정
+id => dat테이블의 id
+action= dat_update_ok.jsp => update dat set name=?, content=? where id=?
+bid는 content로 돌아올때
+name,pwd,content
+수정하고자 하는 dat의 name,content를 수정폼안으로 넣어주기
+
+이름을 클릭하면(수정)
+1. 함수를 호출 dat_update(id, name, content) 매개변수
+2. dat_update(id, name, content)
+  - id,name,content의 값을 폼태그의 input의 value에 전달
+  - action을 date_update_ok
+3. submit의 value를 댓글수정으로 변경
+
+

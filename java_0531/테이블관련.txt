@@ -1,0 +1,10 @@
+1. 테이블명 바꾸기
+alter table 기존테이블명 rename to 새테이블명
+2. 테이블에 필드 추가
+alter table 테이블명 add column 필드명 자료형;
+3. 테이블에 필드 삭제
+alter table 테이블명 drop column 필드명;
+4. 테이블에 필드의 자료형 변경
+alter table 테이블명 modify column 필드명 자료형;
+5. 테이블의 필드의 필드명과 자료형을 변경
+alter table 테이블명 change column 원래필드명 바꿀필드명 자료형;

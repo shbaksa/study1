@@ -1,0 +1,56 @@
+데이터베이스 : 데이터를 관리 해주는 프로그램
+
+데이터를 어디에 저장을 할까?
+=> 데이터베이스에 저장 	폴더와 비슷
+     (공간)
+
+=> 저장되는 곳		파일이랑 비슷
+     (테이블)
+
+ctrol c 로 나갔을때
+mysql -uroot -p1234
+
+1. 데이터베이스 만들기
+create database 데이터베이스명;
+2. 데이터베이스 확인
+show databases;
+3. 테이블 만들기
+먼저 실행할 명령어 : use 데이터베이스명;
+create table 테이블명(항목);   숫자 int 문자 char 날짜 date 등등 (항목=필드)
+
+친구 주소록 만들어 보기
+친구주소록 : friend
+use frist;
+create table friend(
+ 항목명 자료형,
+ 항목명 자료형,
+ 항목명 자료형
+);
+
+테이블 확인
+1. 테이블 목록 => show tables;
+2. 특정테이블의 구성 => desc 테이블명;
+
+테이블에 값을 입력하기
+insert 
+insert into 테이블명 (필드명,필드명) values(값,'값');
+
+테이블에 저장된 내용 확인하기
+select 
+select 필드명,필드명 from 테이블명; // 특정 필드볼때
+	* 전체 필드 볼때
+
+
+EX
+1번 DB에 commed로 접속하기
+-member 테이블 만들기
+-bungo : 번호, name : 이름, phone : 전화번호, age : 나이
+
+2. 1번 심부름꾼을 통해서 111 , 홍길동, 010-1234-5678, 42 입력하는 문서
+  (First jave)
+3. Scanner 를 통해 2번의 동작을 하는것 만들기 (1번 심부름꾼)
+  (Second.java)
+4. 3번을 2번 심부름꾼으로 만들기
+  (Third.java)
+
+

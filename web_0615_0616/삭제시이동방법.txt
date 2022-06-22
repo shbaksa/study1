@@ -1,0 +1,9 @@
+<td>  <a href="delete.jsp"> 2022-06-15 </a> </td>
+                                                                                 click =>                      delete.jsp
+<td onclick="del()">  2022-06-15 </td>
+function del()
+{
+    location="delete.jsp";
+}
+
+<td onclick=" location='delete.jsp' ">  2022-06-15 </td>

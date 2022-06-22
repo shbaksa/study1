@@ -1,0 +1,20 @@
+max() 최대값
+min()  최소값 
+EX)
+select max(age) from member;
+
+if(조건,'참일경우','거짓일경우')
+
+ifnull(필드,값) 
+필드의 값이 null일 경우 값을 지정
+
+select 필드명 from 테이블명
+
+ResultSet rs
+
+rs.getString("필드명")
+rs.getString("ifnull(max(grp),0)")
+별칭 
+필드명 as 별칭
+EX)
+select ifnull(max(grp),0) as grp from qna;

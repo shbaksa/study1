@@ -1,0 +1,14 @@
+package test;
+
+public class Test_Main {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Date_Cal dc = new Date_Cal();
+		
+		dc.getToday();
+
+	}
+
+}

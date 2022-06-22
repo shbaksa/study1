@@ -1,0 +1,12 @@
+비밀글기능 게시판
+테이블명 board2
+create table board2(
+    -> id int auto_increment primary key,
+    -> title char(100),
+    -> name char(10),
+    -> content text,
+    -> readnum int,
+    -> writeday date,
+    -> pwd char(10),
+    -> bimil int,
+    -> area int);

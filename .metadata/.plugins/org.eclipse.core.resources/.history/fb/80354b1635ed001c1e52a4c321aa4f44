@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>	<!-- 0615/memo/memo.jsp -->
+
+	<!-- 메모장 입력 폼 -->
+	<form method="post" action="memo_ok.jsp">
+	<table width="700" align="center">
+	<td> <input type="text" name="name" size="4"> </td>
+	<td> <input type="text" name="content" size="40"></td>
+	<td> <input type="password" name="pwd" size="4"></td>
+	<td> <input type="submit" value="저장"></td>
+	
+	
+	</table>
+	
+	</form>
+	
+	<!--  메모장 내용 출력부분 --> -->
+
+</body>
+</html>

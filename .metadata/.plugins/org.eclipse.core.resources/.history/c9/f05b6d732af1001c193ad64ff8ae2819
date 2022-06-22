@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function check() {
+			// 0 => 48 , 9 => 57
+			if(event.keyCode >= 48 && event.keyCode <= 57){
+				return true;
+			}
+			else
+				return false;
+			
+		}
+		function check1(my){
+			my.value.replace(/[^0~9]/g,"");
+		}
+		function check2(my){
+			my.value.replace(/[^48~57]/g,"");
+		}
+		
+	</script>
+</head>
+<body>	<!-- keypress2.jsp -->
+	<!-- 숫자만 입력(영문X,한글O) -->
+	<input type="text" onkeypress="return check()">
+	<!-- 정규표현식을 이용한 입력 -->
+	<!-- 숫자만 입력하기 -->
+	숫자만 : <input type="text" onkeyup="check1(this)">
+	<!-- 영어만 입력하기 -->
+	영어만 : <input type="text" onkeyup="check2(this)">
+</body>
+</html>

@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@ page import="java.sql.*" %> %>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<%
+	// DB연결
+	Class.forName("com.mysql.jdbc.Driver");
+	String db = "jdbc:mysql://localhost:3306/first";
+	Connection conn = DriverManager.getConnection(db, "root", "1234");
+	
+	String sql = "select * from multi";
+	PreparedStatement pstmt = conn.prepareStatement(sql);
+	ResultSet rs = pstmt.executeQuery();
+	
+	%>
+</head>
+<body>	<!-- 0615/mulit_input.jsp : mulit 테이블에 이름과 나이를 입력하는 폼 -->
+	
+	<form method="post" action="multi_input_ok.jsp">
+	<input type="text" name="name" placeholder="이름" size="4">
+	<input type="text" name="age" placeholder="나이" size="4">
+	<input type="submit" value="전송">
+	</form>
+	<hr>
+	<% while(rs.next()) { %>
+	<div><%=rs.getString("name") %> </div>
+	<div><%=rs.getString("age") %></div>
+	<% } %>
+	<hr>
+	<form method="post" action="multi_update_ok">
+	<input type="text" name="id" value=<%=rs.getInt("id") %> size="2">
+	<input type="text" name="name" placeholder="이름" size="4" autocomplete="">
+	<input type="text" name="age" placeholder="나이" size="4">
+	<input type="submit" value="저장">
+	</form>
+	
+</body>
+</html>

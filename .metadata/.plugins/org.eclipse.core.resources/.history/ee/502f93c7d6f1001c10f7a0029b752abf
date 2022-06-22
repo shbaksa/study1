@@ -1,0 +1,13 @@
+package test;
+
+public class Test_Main {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		DB_Task dt = new DB_Task();
+		dt.insert();
+
+	}
+
+}

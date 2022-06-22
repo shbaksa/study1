@@ -1,0 +1,6 @@
+create table memo(
+    -> id int auto_increment primary key,
+    -> name char(10),
+    -> content char(100),
+    -> pwd char(10),
+    -> writeday date);

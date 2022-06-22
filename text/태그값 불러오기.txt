@@ -1,0 +1,14 @@
+자바스크립트
+
+1. 태그요소의 (태그속성,스타일속성) 변경
+ - 자바스크립트에서 특정태그를 부를 수 있어야 된다.
+(옛날에 id를 이용 => document.all.id이름.속성)
+ - DOM => 태그,id,class,name 
+ - document.getElementsByTagName("태그명");
+ - document.getElementById("id명");
+ - document.getElementsByClassName("클래스명");
+ - document.getElementsByName("name명");
+
+
+
+2. 폼요소의 유효성 검사

@@ -1,0 +1,4 @@
+현재문서(브라우저)                           =>                  다른문서로 이동
+a태그      문서명?변수=값&변수=값
+location    문서명?변수=값&변수=값                        전달할 값이 존재
+form태그   <input> 태그에 넣어서(value)                 request.getParameter("변수")

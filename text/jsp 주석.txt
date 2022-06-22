@@ -1,0 +1,18 @@
+<html>
+   <head>
+       <style>
+	/* 스타일 주석 */
+       </style>
+
+       <script>
+	// 스크립트 주석
+	/* 스크립트 주석 */
+       </script>
+
+   </head>
+
+   <body>
+         <!-- html 주석 --!>
+   </body>
+
+</html>

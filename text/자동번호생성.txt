@@ -1,0 +1,7 @@
+
+create table imsi(
+	id int auto_increment primary key,
+	name char(10)
+	);
+
+int auto_increment primary key, > 자동으로 아이디 번호를 알려준다

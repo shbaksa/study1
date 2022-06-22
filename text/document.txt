@@ -1,0 +1,5 @@
+키보드 => text, password, textarea => document.폼이름.태그이름.value
+
+마우스 => radio, checkbox => document.폼이름.태그이름[배열].checked(value)
+
+select태그 => 유효성검사

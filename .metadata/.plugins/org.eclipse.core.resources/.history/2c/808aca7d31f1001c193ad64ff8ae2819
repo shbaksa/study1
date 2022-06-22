@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function check(){
+			alert();
+		}
+	</script>
+</head>
+<body>	<!-- change.jsp : change이벤트 : 값이 변경되었을때 -->
+	
+	<input type="text" onchange="check()" value="abcd">
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+수정하기
+update
+형식)
+update 테이블명 set 필드명=값,필드명='값' where 조건
+
+
+새로운 테이블
+ create table book(
+    -> id int auto_increment primary key,
+    -> title char(100),
+    -> name char(50),
+    -> price int,
+    -> writeday date);

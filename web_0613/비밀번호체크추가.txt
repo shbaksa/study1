@@ -1,0 +1,4 @@
+1. list.jsp에서 비밀번호를 입력받아야된다.
+2. 입력받은 비밀번호 bimil_check로 전달
+3. bimil_check 비번이 맞으면 readnum
+   틀리면 list

@@ -1,0 +1,9 @@
+select 조회
+
+정렬
+
+order by 필드명 정렬방식
+                        (desc , asc)
+
+메모장에 가장 최근의 글을 먼저 나타나게 하기
+select * from memo order by id desc

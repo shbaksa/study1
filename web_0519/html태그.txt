@@ -1,0 +1,19 @@
+ <> => html tag => 어떤기능을 하는 기호
+
+ html문서의 구조
+ <html>
+  <head>
+    문서의 개요, Cascading Style Sheet, Javascript 구성
+  </head>
+  <body>
+    실제 브라우저에 나타나는 내용을 기재
+  </body>
+ </html>
+
+1. 줄바꿈 태그
+2. 글자관련 태그
+3. 그림태그
+4. 목록태그
+5. a태그
+6. 테이블태그
+7. form태그 => 입력양식
