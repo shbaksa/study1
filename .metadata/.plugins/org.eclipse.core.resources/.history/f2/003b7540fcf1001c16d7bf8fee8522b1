@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function cursorin(my){
+		
+		my.style.background="skyblue";
+	}
+	function cursorout(my){
+		
+		my.style.background="white";
+	}
+</script>
+</head>
+<body>	<!-- focus_blur.jsp -->
+	
+	<!-- focus, blur => text입력폼 -->
+	<input  type="text" onfocus="cursorin(this)" onblur="cursorout(this)" size="40">
+
+</body>
+</html>

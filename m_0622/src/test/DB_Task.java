@@ -39,11 +39,7 @@ public class DB_Task {
 	}
 	
 	public void select() throws Exception {
-			
-		Class.forName("com.mysql.jdbc.Driver");
-		String db="jdbc:mysql://localhost:3306/first";
-		Connection conn = DriverManager.getConnection(db, "root","1234");
-		
+				
 		String sql ="select * from test_member";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
@@ -52,7 +48,7 @@ public class DB_Task {
 		{
 			System.out.print("이름 : "+rs.getString("name")+" ");
 			System.out.print("주소 : "+rs.getString("juso")+" ");
-			System.out.print("핸드폰번호 : "+rs.getString("phone"));
+			System.out.print("핸드폰번호 :  "+rs.getString("phone"));
 			System.out.println();
 		}
 		rs.close();
