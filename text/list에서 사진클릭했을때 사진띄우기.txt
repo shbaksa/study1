@@ -1,0 +1,4 @@
+1. id="pkc"인 div 태그를 생성(레이어)
+
+2. 사진을 클릭하면 id="pkc" 인 <img>에 그림파일을 넣어준다.
+    visibility 를 visible로 바꿔주기

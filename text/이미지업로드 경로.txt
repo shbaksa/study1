@@ -1,0 +1,9 @@
+C:\java\mw_0623\src\main\webapp\upload\img 개발한 위치
+
+C:\Program Files\Apache Software Foundation\Tomcat 9.0
+\webapps\upload\img 실제 동작하는 위치
+
+
+C:\java\.metadata\.plugins
+\org.eclipse.wst.server.core\tmp0\wtpwebapps\mw_0623\upload\img
+그림파일확인하는곳

@@ -1,0 +1,7 @@
+
+String str="";
+if(fname!=null) 
+  str=", fname=?";
+
+String sql="update upload set title=? , name=?, content=? "+str+" where id=?";
+   
