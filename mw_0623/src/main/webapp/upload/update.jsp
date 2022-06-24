@@ -58,6 +58,7 @@
 	
 	<form method="post" action="update_ok.jsp" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="<%=id%>">
+	<input type="hidden" name="fname2" value="<%=rs.getString("fname")%>">
 	<table width="800" align="center" height="800">
 	<caption><h1>후기</h1></caption>
 	<tr>

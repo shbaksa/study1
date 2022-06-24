@@ -3,6 +3,7 @@
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>    
 <%@ page import="java.sql.*" %>
+<%@ page import="java.io.File" %>
     	
    <%
     	// 파일과 입력된 값을 받아서 값은 테이블에 저장, 파일은 특정 폴더에 저장
@@ -24,6 +25,7 @@
 		String name = multi.getParameter("name"); 
 		String content = multi.getParameter("content"); 
 		String fname = multi.getFilesystemName("fname"); 
+		String fname2 = multi.getParameter("fname2"); // 기존의 그림파일명
 		
 		PreparedStatement pstmt;
 		// 쿼리생성
@@ -46,6 +48,11 @@
 			pstmt.setString(3, content);
 			pstmt.setString(4, fname);
 			pstmt.setString(5, id);
+			
+			// 기존 그림을 삭제하기
+			File file = new File(path+"/"+fname2); // fname2는 기존의 파일명
+			if(file.exists())
+				file.delete();
 			
 		}
 
