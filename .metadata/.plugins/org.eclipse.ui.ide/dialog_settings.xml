@@ -19,6 +19,9 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\java\study1\java_0527"/>
+			<item value="C:\java\study1\java_0603"/>
+			<item value="C:\java\study1\mw_0627"/>
 			<item value="C:\java\home_0624"/>
 			<item value="C:\java\web_0613"/>
 			<item value="C:\java\hssweb-master"/>
