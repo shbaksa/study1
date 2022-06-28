@@ -1,0 +1,12 @@
+function move()
+{
+    실행내용;
+}
+setInterval(move,몇초)
+
+setInterval(function(){실행내용;},몇초);
+
+setInterval(function()
+{
+  실행내용;
+},몇초);

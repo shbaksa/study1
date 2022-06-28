@@ -19,6 +19,47 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\java\m_0517"/>
+			<item value="C:\java\m_0518"/>
+			<item value="C:\java\m_0519"/>
+			<item value="C:\java\m_0520"/>
+			<item value="C:\java\m_0523"/>
+			<item value="C:\java\m_0525"/>
+			<item value="C:\java\m_0526"/>
+			<item value="C:\java\m_0527"/>
+			<item value="C:\java\m_0530"/>
+			<item value="C:\java\m_0531"/>
+			<item value="C:\java\m_0602"/>
+			<item value="C:\java\m_0603"/>
+			<item value="C:\java\m_0607"/>
+			<item value="C:\java\m_0622"/>
+			<item value="C:\java\mw_0519"/>
+			<item value="C:\java\mw_0520"/>
+			<item value="C:\java\mw_0524"/>
+			<item value="C:\java\mw_0523"/>
+			<item value="C:\java\m_0524"/>
+			<item value="C:\java\mw_0525"/>
+			<item value="C:\java\mw_0526"/>
+			<item value="C:\java\mw_0527"/>
+			<item value="C:\java\mw_0530"/>
+			<item value="C:\java\mw_0531"/>
+			<item value="C:\java\mw_0602"/>
+			<item value="C:\java\mw_0603"/>
+			<item value="C:\java\mw_0607"/>
+			<item value="C:\java\mw_0608"/>
+			<item value="C:\java\mw_0609"/>
+			<item value="C:\java\mw_0610"/>
+			<item value="C:\java\mw_0613"/>
+			<item value="C:\java\mw_0614"/>
+			<item value="C:\java\mw_0615"/>
+			<item value="C:\java\mw_0616"/>
+			<item value="C:\java\mw_0617"/>
+			<item value="C:\java\mw_0620"/>
+			<item value="C:\java\mw_0621"/>
+			<item value="C:\java\mw_0622"/>
+			<item value="C:\java\mw_0623"/>
+			<item value="C:\java\mw_0624"/>
+			<item value="C:\java\mw_0627"/>
 			<item value="C:\java\study1\java_0527"/>
 			<item value="C:\java\study1\java_0603"/>
 			<item value="C:\java\study1\mw_0627"/>
@@ -47,5 +88,7 @@
 			<item value="C:\java\m_0518\src\test"/>
 			<item value="C:\java\java_0518"/>
 		</list>
+	</section>
+	<section name="ExternalProjectImportWizard">
 	</section>
 </section>
