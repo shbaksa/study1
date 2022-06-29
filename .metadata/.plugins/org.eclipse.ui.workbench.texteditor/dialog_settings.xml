@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="pager"/>
+		<item key="selection" value="winopen"/>
 		<list key="findhistory">
+			<item value="winopen"/>
 			<item value="pager"/>
 			<item value="onmouesout"/>
 			<item value="onmousesout"/>
@@ -15,14 +16,6 @@
 			<item value="&quot;"/>
 			<item value="()"/>
 			<item value="h4"/>
-			<item value="parsInt"/>
-			<item value="Number"/>
-			<item value="Int"/>
-			<item value="kor1"/>
-			<item value="pstmt1"/>
-			<item value="id"/>
-			<item value="radio"/>
-			<item value="long"/>
 		</list>
 		<list key="replacehistory">
 			<item value="onmouseout"/>

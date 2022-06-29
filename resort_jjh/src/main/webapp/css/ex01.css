@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+body
+{
+	font-size: 15px;
+	font-family: "Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+	background-color: white;
+	text-align :center;
+	margin : 0;
+}
+#m1{
+		border : hidden;
+		background: linear-gradient(to left,white, black);
+		font-size : 35px;
+		color : white;
+		text-align : left;	
+		padding-top: 3px;
+		padding-bottom: 5px;
+		padding-left: 10px;
+}
+table
+{
+	width: 100%;
+	border : 1px solid gray;
+	border-left : hidden;
+	border-right : hidden;
+	border-collapse: seperate;
+	border-spacing: 0 2px;
+
+}
+#a1
+{
+	background : white;
+	color : gray;
+	font-weight: bold;
+	text-align : center;
+	font-size: 25px;
+	padding-top : 5px;
+	height: 34px;
+}
+
+#a2
+{
+		height : 20px;
+		font-size : 15px;
+		background : black;		
+		visibility : hidden;
+}
+
+#a1 td
+{
+	
+	border : 1px solid black;
+	border-left : hidden;
+	border-right : hidden;
+}
+
+ul
+{
+	
+	list-style : none;
+}
+li
+{
+	display : inline;
+	padding-left : 3%;
+	padding-right : 3%;
+}
+a
+{
+	text-decoration : none;	
+	color:white;
+}

@@ -1,0 +1,16 @@
+투표
+
+테이블 vote
+
+필드구성 a1 a2 a3 a4 a5 a6 a7  // 구분이름으로 사용하면 다음에 재사용하기 편함
+
+
+1. radio 를 이용한 투표를 할 수 있는 문서 => vote.jsp
+
+2. 선택을 하고 투표하기 버튼이 클릭되면 => vote_ok.jsp
+
+3. 투표 결과를 보여주기 vote_view.jsp
+
+update
+
+update vote set p1=p1+1 where id=1

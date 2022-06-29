@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+
+body
+{
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+	font-size: 13px;
+	font-family: "Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+	margin : 0;
+	background-color: white;
+}
+#fm
+	{
+		text-align:center;
+		margin:0;
+		border-radius : 5px;
+}
+	#fm td
+	{
+		font-weight : bold;
+		padding-top : 5px;
+		border : none;
+		border-radius : 2px;
+		padding-bottom : 5px;
+	}
+table
+{
+	width:100%;
+	border-collapse: seperate;
+	border-spacing: 0 8px;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+#a2	
+{
+	width:100%;
+	border: hidden;
+	border-collapse: seperate;
+	background : ivory;
+	text-align:left;
+	color:gray;
+	}
+
+#a1 
+	{
+		text-align:center;
+		margin:0;
+}
+	#a1 td
+	{
+		padding-top : 9px;
+		border-top : 1px solid lightgray;
+	}
+	
+#aaa 
+	{
+		background : ivory;
+}
+	#aaa td
+	{
+		border-top: 3px solid gray;
+		border-bottom: 3px solid gray;
+	}	
+	
+	
+div{
+
+	border-radius:5px;
+	border : hidden;
+	background: linear-gradient(to left,white, #5882FA);
+	font-size : 35px;
+	color : white;
+	text-align : left;	
+	padding-top: 3px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+
+input[type=submit]
+{
+	width:80px;
+	height:20px;
+	background:white;
+	border:1px solid gray;
+	border-radius:10px;
+	padding-top : 2px;
+	display: inline;
+}
+input[type=submit]:hover
+{
+	width:80px;
+	height:20px;
+	color:white;
+	background:gray;
+	border:1px solid gray;
+	border-radius:10px;
+	padding-top : 2px;
+	display: inline;
+}
+input[type=button]
+{
+	width:100px;
+	height:30px;
+	color:white;
+	background:#819FF7;
+	border:1px solid gray;
+	border-radius:8px;
+	padding-top : 2px;
+	display: inline;
+}
+input[type=button]:hover
+{
+	width:100px;
+	height:30px;
+	color:white;
+	background:#819FF7;
+	border:2px solid black;
+	border-radius:8px;
+	padding-top : 2px;
+	display: inline;
+}
+form
+{
+	display : inline;
+ }
+#search
+{
+	width:20px;
+	height:17px;
+	border:hidden;
+	background-image:url("img/search.jpg");
+}
+#ccc
+{
+	margin-left:65%;
+	width:200px;
+	height:20px;
+	border: 1px solid gray;
+	border-radius:8px;
+}
+#ccb
+{
+
+	width:80px;
+	height:15px;
+	border:hidden;
+}
+#cca
+{
+
+	width:100px;
+	height:14px;
+	border:hidden;
+}
+
+
+

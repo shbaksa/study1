@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+body
+{
+	font-size: 15px;
+	font-family: "Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+	background-color: white;
+	margin:0;	
+}
+#joinmain
+{
+	margin-top : 5%;
+	margin-left : 30%;
+}
+#m1{
+		width : 400px;
+		border : hidden;
+		background: linear-gradient(to left,white, black);
+		font-size : 35px;
+		color : white;
+		text-align : left;	
+		padding-top: 3px;
+		padding-bottom: 5px;
+		padding-left: 10px;
+		margin-bottom:15px;
+		border-radius : 5px;
+		
+}
+table
+{
+	width: 100%;
+	border : 1px solid gray;
+	border-left : hidden;
+	border-right : hidden;
+	border-collapse: seperate;
+	border-spacing: 0 2px;
+
+}
+#a1
+{
+	width:100%;
+	background : white;
+	color : gray;
+	font-weight: bold;
+	text-align : center;
+	font-size: 25px;
+	padding-left:40%;
+	height: 34px;
+}
+
+#join01
+{
+	width:100%;
+	background : white;
+	color : black;
+	font-weight: bold;
+	text-align : center;
+	font-size: 25px;
+	height: 34px;
+	display: inline;
+	
+}
+
+#login
+{
+	background : white;
+	color : gray;
+	font-weight: bold;
+	font-size: 15px;
+	padding-top : 5px;
+	height: 34px;
+	padding-left : 20%;
+	display : inline;
+}
+
+#join
+{
+	visibility : hidden;	
+	color: black;
+	font-size:15px;
+}
+
+#a2
+{
+		height : 20px;
+		font-size : 15px;
+		background : black;		
+		visibility : hidden;
+
+}
+
+#a1 td
+{
+	
+	border : 1px solid black;
+	border-left : hidden;
+	border-right : hidden;
+}
+
+ul
+{
+	
+	list-style : none;
+}
+li
+{
+	display : inline;
+	padding-left : 3%;
+	padding-right : 3%;
+}
+a
+{
+	text-decoration : none;	
+	color:white;
+}
+
+
+input[type=submit]
+{
+	width:80px;
+	height:20px;
+	color:white;
+	background: gray;
+	border:1px solid gray;
+	border-radius:8px;
+	
+}
+
+input[type=button]
+{
+	width:80px;
+	height:20px;
+	color:white;
+	background: gray;
+	border:1px solid black;
+	border-radius:1px;
+	
+}
+
+
+input[type=text]
+{
+	width:400px;
+	height:30px;
+	color : gray;
+	background: white;
+	border:2px solid lightgray;
+	border-radius:2px;
+}
+#pw_ck
+{
+	padding-right:2%;
+	width:100px;
+	height:20px;
+	color : Red;
+	border:hidden;
+}
+#psad
+{
+	width:250px;
+	height:30px;
+	color : gray;
+	background: white;
+	border:2px solid lightgray;
+	border-radius:2px;
+	text-align :left;
+	pointer-events : none;
+}
+#address_re
+{
+	pointer-events : none;
+}
+#psad_scr
+{
+	width:50px;
+	height:33px;
+	color:white;
+	background: gray;
+	border:1px solid black;
+	border-radius:1px;
+	
+}
+
+input[type=password]
+{
+	width:400px;
+	height:30px;
+	color : gray;
+	background: white;
+	border:2px solid lightgray;
+	border-radius:2px;
+	
+}
