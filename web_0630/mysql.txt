@@ -1,0 +1,10 @@
+1. name필드와 id필드 합하기     concat(name,id) 
+
+2. 임의의 값 
+    rand(seed) => 0~1
+    floor(rand(seed)*100)
+
+3. content필드에 임의의 값 붙인다
+    concat(content , floor(rand(id)*100) )
+update board1 set content=concat(content , floor(rand(id)*100) )
+ 

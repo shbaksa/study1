@@ -1,0 +1,21 @@
+name 테스트
+
+update boar1 set name=concat(name,id);
+
+id 숫자 name+id
+
+concat();
+
+mysql  concat(name,id);
+java name+id
+
+1. name필드와 id필드 합치기
+   concat(name,id)
+
+2. 임의의 값
+   rand(seed) => 0~1
+   floor(rand(seed)*100) 정수
+
+3. content 필드에 임의의 값 붙인다
+   concat(content, floor(rand(id)*100));
+update board1 set content=concat(content, floor(rand(id)*100));

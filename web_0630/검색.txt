@@ -1,0 +1,21 @@
+
+제목 검색시 앞뒤로 %를 거의 해결된다
+
+java로 시작되는 제목을 가진책
+
+where  title like '%java%'  => java가 포함된 제목은 다 가져온다..
+
+where title like 'java%'    => java로 시작되는 제목
+
+게시판에서  제목, 내용, 작성자를 검색 : 하나의 필드만 작업
+검색어 => 하하
+where title like  '%하하%'
+where content like  '%하하%'
+where name like   '%하하%'
+
+
+
+
+
+
+

@@ -132,3 +132,10 @@
 
 6월 29, 2022 16:52:23.599 NEW SESSION
 6월 29, 2022 16:52:23.599 [6840:6804:0629/165223.597:ERROR:device_event_log_impl.cc(214)] [16:52:23.597] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+
+6월 30, 2022 15:36:51.773 NEW SESSION
+6월 30, 2022 15:36:51.774 [12748:9464:0630/153651.771:ERROR:device_event_log_impl.cc(214)] [15:36:51.771] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+6월 30, 2022 15:37:49.201 [12748:2908:0630/153749.200:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+6월 30, 2022 17:11:09.293 [12748:9464:0630/171109.292:ERROR:CONSOLE(1)] "Request Runtime.evaluate failed. {"code":-32602,"message":"uniqueContextId not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 30, 2022 17:11:09.294 [12748:9464:0630/171109.293:ERROR:CONSOLE(1)] "uniqueContextId not found", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+6월 30, 2022 17:11:09.295 [12748:9464:0630/171109.293:ERROR:CONSOLE(1)] "Extension server error: Inspector protocol error: uniqueContextId not found", source: devtools://devtools/bundled/devtools-frontend/front_end/models/extensions/extensions.js (1)
