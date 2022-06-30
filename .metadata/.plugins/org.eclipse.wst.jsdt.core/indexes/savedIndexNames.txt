@@ -1,31 +1,6 @@
-INDEX VERSION 1.4+C:\java\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1071713976.index
-3108373114.index
-3522129812.index
-1897967326.index
-2762924379.index
-873594058.index
-1452329846.index
-2297329281.index
+INDEX VERSION 1.4+C:\java\study1\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 600917433.index
-986346744.index
-103259720.index
-563608544.index
-4169433614.index
+4029091483.index
 1125567580.index
-948751009.index
-2709887771.index
-2800246530.index
-3569620436.index
-2526577625.index
-1034399969.index
-1636684724.index
-1305298030.index
-3874649942.index
-1786585542.index
-2747475266.index
-378200866.index
-2407772824.index
-1223048750.index
-300361531.index
-2448771008.index
+1879751491.index
+873594058.index
