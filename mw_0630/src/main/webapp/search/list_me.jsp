@@ -90,7 +90,7 @@
  	
  </script>
   <table width="500" border="1" align="center">
-  <caption><h1>검색</h1> <!-- 제목, 내용, 작성자 -->
+  <caption ><h1 onclick="location='list_me.jsp'">검색</h1> <!-- 제목, 내용, 작성자 -->
   <form name="pkc" method="post" action="list_me.jsp">
   <select name="field"> <!-- 사용자가 선택한 필드와 검색단어를 폼태그에 표시 -->
   	<option value="select"> 선택 </option>
