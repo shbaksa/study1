@@ -19,6 +19,9 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\java\study1\mw_0628"/>
+			<item value="C:\java\study1\mw_0630"/>
+			<item value="C:\java\study1\mw_0629"/>
 			<item value="C:\java\bo\QnA"/>
 			<item value="C:\java\Board_ex1"/>
 			<item value="C:\java\boot_base"/>
