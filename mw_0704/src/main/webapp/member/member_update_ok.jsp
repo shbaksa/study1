@@ -6,10 +6,14 @@
 
 	<%
 		Member_Dao md = new Member_Dao();
+		//String name = request.getParameter("name");
+		//String age = request.getParameter("age");
+		//String id = request.getParameter("id");
 		
+		//out.print(name+"/"+age+"/"+id);
 		md.update(request);
 		
-		response.sendRedirect("list.jsp");
+		response.sendRedirect("list_meme.jsp");
 	
 	%>
 	

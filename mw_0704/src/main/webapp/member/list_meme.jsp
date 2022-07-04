@@ -23,34 +23,42 @@
 </style>
 <script>
 	
-	
-	let proc=0;
+
 
 	function view(i,id){
+			
+			var i=i;
+			var id=id;
+			var ee = document.getElementById("ii"+id).value;
 			var na;
 			var ag;
-
 			
-			switch(proc){
-			
-			case 0 : 
+			if(ee=="수정"){
+				
 				document.getElementsByClassName("nn")[i].innerHTML="<input type='text' size='4' id='yy' name='name'>";
 				document.getElementsByClassName("mm")[i].innerHTML="<input type='text' size='4' id='tt' name='age'>";
-				proc++;
-				break;
-			case 1 :
-				na = document.getElementById("yy").value; 
-				ag = document.getElementById("tt").value;
-				
-				document.getElementsByClassName("qq")[i].innerHTML="<input type='button' onclick='"+open(na,ag,id)+"' value='전송'>";
-				proc = 0;
-				break;
+				document.getElementById("ii"+id).value="완료";
 			}
-		
 			
+			else if (ee=="완료"){
+				
+				if(na == "" || ag == ""){
+					alert("빈칸입니다");
+					return false;
+				}
+				else{
+					na = document.getElementById("yy").value; 
+					ag = document.getElementById("tt").value;
+					
+					document.getElementsByClassName("qq")[i].innerHTML="<input type='button' onclick='return"+open(na,ag,id)+"' value='전송'>";
+					document.getElementById("ii"+id).value="수정";
+				}
+	
+			}
 	}
+	
 	function open(na,ag,id){
-		alert(na+ag);
+		// alert(na+ag);
 		location="member_update_ok.jsp?id="+id+"&name="+na+"&age="+ag;
 	}
 	
@@ -78,7 +86,7 @@
 	<tr>
 	<td id="aa<%=rs.getInt("id")%>" class="nn"> <%=rs.getString("name") %> </td>  
 	<td id="bb<%=rs.getInt("id")%>" class="mm"> <%=rs.getInt("age") %> </td>
-	<td><input class="qq" type="button" onclick="view(<%=i%>,<%=rs.getInt("id") %>)" value="수정"> </td>
+	<td><input class="qq" id="ii<%=rs.getInt("id") %>" type="button" onclick="view(<%=i%>,<%=rs.getInt("id") %>)" value="수정"> </td>
 	<td><input type="button" onclick="location='member_delete.jsp?id=<%=rs.getInt("id") %>'" value="삭제"></td>
 	</tr>
 
