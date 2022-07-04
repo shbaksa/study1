@@ -1,0 +1,14 @@
+테이블 member;
+id 
+name
+age
+
+패키지 
+ member  => dao
+     Member_Dao
+
+폴더
+webapp
+    member  
+      -  member_input.jsp
+      -  member_input_ok.jsp

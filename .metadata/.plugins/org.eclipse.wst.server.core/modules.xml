@@ -32,5 +32,6 @@
   <module moduleId="org.eclipse.jst.jee.server:mw_0629" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:mw_0628" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:mw_0627" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:mw_0704" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:mw_0527" serverId="Tomcat v9.0 Server at localhost"/>
 </modules>
