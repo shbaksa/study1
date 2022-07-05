@@ -1,0 +1,16 @@
+테이블 sungjuk
+
+id int
+name
+kor
+eng
+mat
+-----------------------
+write.jsp 입력폼
+write_ok.jsp insert 쿼리실행
+list.jsp 목록(name,kor,eng,mat) + 수정,삭제
+delete.jsp 삭제
+update.jsp 수정폼
+update_ok.jsp 수정쿼리실행
+
+sungjuk_Dao.java

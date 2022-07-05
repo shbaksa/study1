@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  
+ </head>
+ <body>
+ <div id=wrapper>
+  <div class=aa> 안녕하세요1 </div>
+  <div class=aa> 안녕하세요2 </div>
+  <div class=aa> 안녕하세요3 </div>
+  <div class=aa> 안녕하세요4 </div>
+ </div>
+  <script>
+   var tt=document.getElementsByClassName("aa");
+   //console.log(Array.isArray(tt));
+   //console.log(Array.isArray(Array.from(tt)));
+   //tt.forEach(function(item)
+   //{
+   //   console.log(item);
+   //})
+   Array.from(tt).forEach(function(item)
+   {
+      console.log(item);
+   })
+ 
+  </script>
+ </body>
+</html>

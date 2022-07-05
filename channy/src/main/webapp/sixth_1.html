@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <style>
+    input[type=button]{
+      width:200px;
+	  height:50px;
+	  font-size:40px;
+	}
+
+  </style>
+  <script>
+    function left()
+	{
+       temp=document.getElementsByClassName[0].innerHTML;
+	   for(i=0;i<5;i++)
+	     document.getElementsByClassName[i].innerHTML=document.getElementsByClassName[i+1].innerHTML;
+	   document.getElementsByClassName[5].innerHTML=temp;
+	}
+	function right()
+	{
+       temp=document.getElementsByClassName[5].innerHTML;
+        
+	   for(i=4;i>=0;i--)
+	     document.getElementsByClassName[i+1].innerHTML=document.getElementsByClassName[i].innerHTML;
+	   document.getElementsByClassName[0].innerHTML=temp;
+	}
+  </script>
+ </head>
+ <body>
+   <input type=button onclick=left() value="←">
+   <input type=button onclick=right() value="→"> <p>
+   <div id=pkc>
+     <span class=aa><img src=img/1.jpg width=200></span>
+	 <span class=aa><img src=img/2.jpg width=200></span>
+	 <span class=aa><img src=img/3.jpg width=200></span>
+	 <span class=aa><img src=img/4.jpg width=200></span>
+	 <span class=aa><img src=img/5.jpg width=200></span>
+	 <span class=aa><img src=img/6.jpg width=200></span>
+   </div>
+	
+ </body>
+</html>

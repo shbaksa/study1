@@ -41,21 +41,16 @@
 			}
 			
 			else if (ee=="완료"){
-				
-				if(na == "" || ag == ""){
-					alert("빈칸입니다");
-					return false;
-				}
-				else{
+			
 					na = document.getElementById("yy").value; 
 					ag = document.getElementById("tt").value;
 					
-					document.getElementsByClassName("qq")[i].innerHTML="<input type='button' onclick='return"+open(na,ag,id)+"' value='전송'>";
+					document.getElementsByClassName("qq")[i].innerHTML="<input type='button' onclick='"+open(na,ag,id)+"' value='전송'>";
 					document.getElementById("ii"+id).value="수정";
 				}
 	
 			}
-	}
+	
 	
 	function open(na,ag,id){
 		// alert(na+ag);

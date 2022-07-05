@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="div"/>
 		<list key="findhistory">
+			<item value="tr"/>
+			<item value="td"/>
 			<item value="&lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;%=rs.getInt(&quot;id&quot;) %&gt;&quot;&gt;"/>
 			<item value="view"/>
 			<item value="view()"/>
@@ -21,13 +23,12 @@
 			<item value="onmousesout"/>
 			<item value="div"/>
 			<item value="&quot;"/>
-			<item value="()"/>
-			<item value="h4"/>
 		</list>
 		<list key="replacehistory">
+			<item value="div"/>
+			<item value="span"/>
 			<item value="onmouseout"/>
 			<item value="onmouesout"/>
-			<item value="span"/>
 			<item value=""/>
 			<item value="b"/>
 			<item value="parseInt"/>
@@ -39,7 +40,6 @@
 			<item value="pstmt2"/>
 			<item value="bunho"/>
 			<item value="checkbox"/>
-			<item value="int"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
