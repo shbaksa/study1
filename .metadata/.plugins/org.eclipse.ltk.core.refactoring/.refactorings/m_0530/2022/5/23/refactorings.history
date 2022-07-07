@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;db.Db_Insert2&apos; to &apos;Db_Insert3&apos;&#x0D;&#x0A;- Original project: &apos;m_0530&apos;&#x0D;&#x0A;- Original element: &apos;db.Db_Insert2&apos;&#x0D;&#x0A;- Renamed element: &apos;db.Db_Insert3&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Db_Insert2&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;db{Db_Insert2.java[Db_Insert2" matchStrategy="1" name="Db_Insert3" qualified="false" references="true" similarDeclarations="false" stamp="1653891737181" textual="false" version="1.0"/>
-</session>

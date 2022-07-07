@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.jdt.ui.java"/>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\java\mw_0623"/>
+			<item value="C:\java\mw_0622"/>
+			<item value="C:\java\mw_0621"/>
+			<item value="C:\java\mw_0706"/>
+			<item value="C:\java\m_0706"/>
+			<item value="C:\java\mw_0707"/>
+			<item value="C:\java\m_0707"/>
 		</list>
 	</section>
 	<section name="SaveAsDialogSettings">
@@ -11,103 +20,6 @@
 		<item key="DIALOG_Y_ORIGIN" value="142"/>
 		<item key="DIALOG_WIDTH" value="525"/>
 		<item key="DIALOG_HEIGHT" value="580"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-	</section>
-	<section name="SmartImportWizard">
-		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
-		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
-		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
-		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
-		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
-			<item value="C:\java\mw_0628"/>
-			<item value="C:\java\mw_0629"/>
-			<item value="C:\java\web_0629"/>
-			<item value="C:\java\mw_0630"/>
-			<item value="C:\java\mw_0701"/>
-			<item value="C:\java\mw_0704"/>
-			<item value="C:\java\study1\mw_0704"/>
-			<item value="C:\java\study1\mw_0628"/>
-			<item value="C:\java\study1\mw_0630"/>
-			<item value="C:\java\study1\mw_0629"/>
-			<item value="C:\java\bo\QnA"/>
-			<item value="C:\java\Board_ex1"/>
-			<item value="C:\java\boot_base"/>
-			<item value="C:\java\m_0517"/>
-			<item value="C:\java\m_0518"/>
-			<item value="C:\java\m_0519"/>
-			<item value="C:\java\m_0520"/>
-			<item value="C:\java\m_0523"/>
-			<item value="C:\java\m_0525"/>
-			<item value="C:\java\m_0526"/>
-			<item value="C:\java\m_0527"/>
-			<item value="C:\java\m_0530"/>
-			<item value="C:\java\m_0531"/>
-			<item value="C:\java\m_0602"/>
-			<item value="C:\java\m_0603"/>
-			<item value="C:\java\m_0607"/>
-			<item value="C:\java\m_0622"/>
-			<item value="C:\java\mw_0519"/>
-			<item value="C:\java\mw_0520"/>
-			<item value="C:\java\mw_0524"/>
-			<item value="C:\java\mw_0523"/>
-			<item value="C:\java\m_0524"/>
-			<item value="C:\java\mw_0525"/>
-			<item value="C:\java\mw_0526"/>
-			<item value="C:\java\mw_0527"/>
-			<item value="C:\java\mw_0530"/>
-			<item value="C:\java\mw_0531"/>
-			<item value="C:\java\mw_0602"/>
-			<item value="C:\java\mw_0603"/>
-			<item value="C:\java\mw_0607"/>
-			<item value="C:\java\mw_0608"/>
-			<item value="C:\java\mw_0609"/>
-			<item value="C:\java\mw_0610"/>
-			<item value="C:\java\mw_0613"/>
-			<item value="C:\java\mw_0614"/>
-			<item value="C:\java\mw_0615"/>
-			<item value="C:\java\mw_0616"/>
-			<item value="C:\java\mw_0617"/>
-			<item value="C:\java\mw_0620"/>
-			<item value="C:\java\mw_0621"/>
-			<item value="C:\java\mw_0622"/>
-			<item value="C:\java\mw_0623"/>
-			<item value="C:\java\mw_0624"/>
-			<item value="C:\java\mw_0627"/>
-			<item value="C:\java\study1\java_0527"/>
-			<item value="C:\java\study1\java_0603"/>
-			<item value="C:\java\study1\mw_0627"/>
-			<item value="C:\java\home_0624"/>
-			<item value="C:\java\web_0613"/>
-			<item value="C:\java\hssweb-master"/>
-			<item value="C:\java\m_0601"/>
-			<item value="C:\java\web_0602"/>
-			<item value="C:\java\web_0530"/>
-			<item value="C:\java\java_0530"/>
-			<item value="C:\java\web_0527"/>
-			<item value="C:\java\java_0527"/>
-			<item value="C:\java\web_0526"/>
-			<item value="C:\java\java_0526"/>
-			<item value="C:\java\java_0525"/>
-			<item value="C:\java\web_0525"/>
-			<item value="C:\java\web_0524"/>
-			<item value="C:\java\java_0524"/>
-			<item value="C:\java\web_0523"/>
-			<item value="C:\java\java_0523"/>
-			<item value="C:\java\web_0520"/>
-			<item value="C:\java\web_0519"/>
-			<item value="C:\java\java_0520"/>
-			<item value="C:\java\java_0519"/>
-			<item value="C:\java\java_0517"/>
-			<item value="C:\java\m_0518\src\test"/>
-			<item value="C:\java\java_0518"/>
-		</list>
-	</section>
-	<section name="ExternalProjectImportWizard">
-	</section>
-	<section name="CleanDialogSettings">
-		<item key="TOGGLE_SELECTED" value="false"/>
-		<item key="DIALOG_WIDTH" value="500"/>
-		<item key="DIALOG_HEIGHT" value="389"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>

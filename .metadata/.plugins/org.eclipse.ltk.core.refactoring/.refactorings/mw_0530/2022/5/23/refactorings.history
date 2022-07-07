@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;mw_0530/src/main/webapp/rotata.jsp&apos; to &apos;rotate.jsp&apos;" description="Rename resource &apos;rotata.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/rotata.jsp" name="rotate.jsp" stamp="1653896022578" updateReferences="true"/>
-</session>

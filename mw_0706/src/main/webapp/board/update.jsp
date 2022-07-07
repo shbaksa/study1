@@ -4,26 +4,16 @@
     
 <%@ page import="board.BoardDao" %>
 	<%
-		String title="";
-		String name="";
-		String content="";
-		String id="";
+		BoardDao bd = new BoardDao();
+		ResultSet rs = bd.content(request);
+		rs.next();
 		int ck=0;
 		if(request.getParameter("ck")==null){
 			ck=0;
-			BoardDao bd = new BoardDao();
-			ResultSet rs = bd.content(request);
-			rs.next();
-			title = rs.getString("title");
-			name = rs.getString("name");
-			content = rs.getString("content");
-			id = rs.getString("id");
+			
 		 }
-		else if(Integer.parseInt(request.getParameter("ck")) == 1) {
-		title = request.getParameter("title");
-		name = request.getParameter("name");
-		content = request.getParameter("content");
-		id = request.getParameter("id");
+		else if(Integer.parseInt(request.getParameter("ck")) == 789798) {
+	
 	%>
 		<script>
 			alert("비밀번호 오류");
@@ -76,17 +66,17 @@ tr,td{
 <body>
 	
 	 <form method="post" action="update_ok.jsp" onsubmit="return view(this.form)">
-	 <input type="hidden" name="id" value="<%=id %>">
+	 <input type="hidden" name="id" value="<%=rs.getInt("id") %>">
 	 <table width="500" height="600" align="center">
 	 <tr>
 	 <td>제목</td>
-	 <td><input type="text" name="title" id="ti" value="<%=title%>"></td>
+	 <td><input type="text" name="title" id="ti" value="<%=rs.getString("title")%>"></td>
 	 <td>작성자</td>
-	 <td><input type="text" name="name" id="na" value="<%=name %>"></td>
+	 <td><input type="text" name="name" id="na" value="<%=rs.getString("name") %>"></td>
 	 </tr>
 	 <tr>
 	 <td height="500">내용</td>
-	 <td colspan="3"><textarea cols="60" rows="30" id="co" name="content"><%=content%></textarea></td>
+	 <td colspan="3"><textarea cols="60" rows="30" id="co" name="content"><%=rs.getString("content")%></textarea></td>
 	 </tr>
 	 <tr id="aa" style="visibility:hidden;">
 	 <td>비밀번호</td>

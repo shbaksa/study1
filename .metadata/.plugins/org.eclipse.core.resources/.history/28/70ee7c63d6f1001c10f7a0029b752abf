@@ -1,9 +1,0 @@
-package test;
-
-import java.time.LocalDateTime;
-
-public class Date_Cal {
-	
-	LocalDateTime today = new LocalDateTime();
-
-}

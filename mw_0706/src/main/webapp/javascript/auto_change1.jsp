@@ -21,9 +21,7 @@
 			},5000)
 			
 		}
-		
-		
-	
+
 	</script>
 </head>
 <body>	<!-- auto_change1.jsp => 글자내용이 1초 자동으로 변하기 -->

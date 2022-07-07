@@ -14,7 +14,7 @@
 		
 		my.innerText=txt;
 	}
-	function img_change(my,img){
+	function img_change(my,img){ /*da dk */
 		
 		my.src=img;
 	}
