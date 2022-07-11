@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+
+#cap {
+	
+	width : 1000px;
+	height : 80px; 
+	text-align : center;
+	margin : auto;
+	background : skyblue;
+	border : 1px soild black;
+	padding-top : 45px;
+}
+
+#loginbox {	
+	width : 1000px;
+	height : 30px;
+	text-align : right;
+	margin : auto;
+}
+#loginboxspan{
+	margin : auto;
+	margin-right : 1px;
+	border : 1px solid black;
+}
+#join {
+	margin : auto;
+	border : 1px solid black;
+}
+
+#col_main{
+	width : 1000px;
+	margin : auto;
+	text-align:center;
+}
+#col_main br{
+	border-bottom : 1px solid black;
+}
+#col{	
+	display : inline-block;
+	position : relative;
+	padding-top : 15px;
+	width : 300px;
+	height : 35px;
+	border : 1px solid black;
+	margin: auto;
+}
+
+#col:hover{	
+	background : lightgray;
+}
+.sub{ 
+	
+	position : absolute;
+	width : 300px;	
+	height : 40px;
+	top : 45px;
+	left : -1px;
+	padding : auto;
+	visibility : hidden;
+}
