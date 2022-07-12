@@ -1,0 +1,7 @@
+오늘 프로젝트에  board라는 폴더 생성
+write.jsp, write_ok.jsp, list.jsp 
+
+DB : second  , 테이블  board
+
+dao
+board패키지에 BoardDao를 생성

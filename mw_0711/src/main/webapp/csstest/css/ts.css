@@ -2,7 +2,7 @@
 
 
 #cap {
-	
+	position : relative;
 	width : 1000px;
 	height : 80px; 
 	text-align : center;
@@ -10,13 +10,32 @@
 	background : skyblue;
 	border : 1px soild black;
 	padding-top : 45px;
+	
+}
+#cap b {
+	position : absolute;
+	margin-top : -10px;
+	margin-left : -20px;
+	font-size : 36px;
 }
 
 #loginbox {	
+	position : absolute;
 	width : 1000px;
 	height : 30px;
 	text-align : right;
+	margin-top : -15px;
+	margin-left : -30px;
+}
+#logininput{
+	display : none;
+	width : 1000px;
+	text-align : center;
 	margin : auto;
+}
+#logininput[input-type]{
+	width : 300px;
+	height : 30px;
 }
 #loginboxspan{
 	margin : auto;
@@ -39,11 +58,15 @@
 #col{	
 	display : inline-block;
 	position : relative;
-	padding-top : 15px;
+	padding-top : 10px;
 	width : 300px;
 	height : 35px;
 	border : 1px solid black;
 	margin: auto;
+}
+#col span{
+	border-bottom : 1px solid black;
+	font-size : 28px;
 }
 
 #col:hover{	
@@ -54,7 +77,7 @@
 	position : absolute;
 	width : 300px;	
 	height : 40px;
-	top : 45px;
+	top : 46px;
 	left : -1px;
 	padding : auto;
 	visibility : hidden;
