@@ -15,11 +15,11 @@
 <body>
 	<!-- index.jsp -->
 	<div id="first">
-		펜션 오픈 기념 1박에 100원에 !!! <span id="aa">X</span>
+		펜션 오픈 기념 1박에 100원에 !!! <a id="aa">X</a>
 	</div>
 
 	<div id="second">
-		<div id="left">Logo</div>
+		<div id="left"><a href="../main/index.jsp">Logo</a></div>
 		<div id="right">
 			<ul>
 				<li id="main" onmouseover="view(0)" onmouseout="hide(0)">팬션소개
@@ -47,12 +47,18 @@
 					<ul class="sub">
 						<li>공지사항</li>
 						<li>여행후기</li>
-						<li>자유게시판</li>
+						<li><a href="../board/list.jsp">자유게시판</a></li>
 					</ul>
 				</li>
 				<li>
-				로그인 
-				<a href="../member/member_input.jsp">회원가입</a>
+					<!-- 로그인을 하지 않은 경우 --> <c:if test="${userid==null}">
+						<a href="../member/login.jsp">로그인</a>
+						<a href="../member/member_input.jsp">회원가입</a>
+					</c:if> <!-- 로그인을 한 경우 --> <c:if test="${userid!=null}">
+				${name}님&nbsp;
+				<a href="../member/logout.jsp">로그아웃</a>&nbsp;
+				<a href="../member/info.jsp">회원정보</a>&nbsp;
+				</c:if>
 				</li>
 			</ul>
 		</div>

@@ -3,6 +3,7 @@
 
 	
 	<div id="sixth">
+	
 		<table width="1000" align="center">
 		<tr>
 		<td width="100">팬션홈페이지</td>

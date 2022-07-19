@@ -42,6 +42,9 @@
     display:inline-block;
     width:140px;
   }
+  #second > #right > ul > li:last-child {  /* 마지막 li태그의 길이는 크게 */
+    width:200px;
+  }
   #second #right #main {  /* 주메뉴 */
      position:relative;
   }
@@ -137,13 +140,29 @@
            <ul class="sub">
              <li> 공지사항 </li>
              <li> 여행후기 </li>
-             <li> 자유게시판 </li>
+             <li> <a href="../board/list.jsp"> 자유게시판 </a></li>
            </ul>
         </li>
         <li>
-          로그인
+        <c:if test="${userid == null}">
+         <!-- 로그인을 하지 않은 경우 -->
+          <a href="../member/login.jsp"> 로그인 </a>
           <a href="../member/member_input.jsp"> 회원가입 </a>
+        </c:if>
+        
+        <c:if test="${userid != null}"> 
+         <!-- 로그인을 한 경우 -->
+          ${name}님 
+          <a href="../member/logout.jsp"> 로그아웃 </a>
+          <a href="../member/member_info.jsp"> 회원정보 </a> 
+        </c:if>
         </li>
       </ul>
     </div>
   </div>
+  
+  
+  
+  
+  
+  

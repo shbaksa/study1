@@ -3,7 +3,7 @@
 <%@ page import = "dao.MemberDao" %> 
  	
  	<%
- 		// userid_check.jsp
+ 		
  		MemberDao mdao = new MemberDao();
  		
  		mdao.userid_check(request, out);

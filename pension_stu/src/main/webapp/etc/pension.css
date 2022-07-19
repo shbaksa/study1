@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* top.jsp */
+/*----------------- webapp/top.jsp start ----------------- */
 body {
 	margin: 0px;
 }
@@ -12,6 +12,12 @@ body {
 	color: white;
 	padding-top: 7px;
 	background: purple;
+}
+
+#first>#aa {
+	position: absolute;
+	margin-left: 350px;
+	margin-top: 0px;
 }
 
 #second {
@@ -42,6 +48,10 @@ body {
 	/* background:red; */
 }
 
+#second>#right>ul>li:last-child { /* 마지막 li태그 크기를 크게 */
+	width: 250px;
+}
+
 #second #right #main { /*주메뉴*/
 	position: relative;
 }
@@ -56,7 +66,10 @@ body {
 #second #right #main .sub li {
 	list-style-type: none;
 }
-/* index.jsp */
+
+/*----------------- webapp/top.jsp end ----------------- */
+
+/*----------------- main/index.jsp start ----------------- */
 #third {
 	width: 1100px;
 	height: 400px;
@@ -91,45 +104,182 @@ body {
 	border: 1px solid red;
 	display: inline-block;
 }
-/* bottom.jsp */
+/*----------------- main/index.jsp end -----------------*/
 
+/*----------------- webapp/bottom.jsp start -----------------*/
 #sixth {
 	width: 1100px;
 	height: 100px;
 	margin: auto;
+	margin-top:300px;
 	background: #cccccc;
+	color:white;
+}
+/*----------------- webapp/bottom.jsp end -----------------*/
+
+/*----------------- member/member_input start -----------------*/
+#input_section {
+	width: 1100px;
+	height: 500px;
+	margin: auto;
 }
 
-/* member_input*/
-#section{
-	width:1100px;
-	height:500px;
-	margin:auto;
+#iderr, #pwderr {
+	font-size: 12px;
+}
+/*----------------- member/member_input end -----------------*/
+
+/*----------------- member/login.jsp start ----------------- */
+#login_section {
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;
 }
 
+#login_section input[type=text] {
+	margin-top:100px;
+	width: 300px;
+	height: 40px;
+	border: 1px solid purple;
+	outline: none;
+}
 
+#login_section input[type=password] {
+	width: 300px;
+	height: 40px;
+	border: 1px solid purple;
+	outline: none;
+}
 
+#login_section input[type=submit] {
+	width: 300px;
+	height: 40px;
+	border: 1px solid purple;
+	outline: none;
+	background: purple;
+	color: white;
+	font-size: 20px;
+}
+/*----------------- member/login.jsp end ----------------- */
 
+/*----------------- member/info.jsp start -----------------*/
+#member_info_section {
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;
+}
 
+#member_info_section table {
+	margin-top: 100px;
+	width: 400px;
+}
+#member_info_section .btn{
+	display:inline-block;
+	width:130px;
+	height:30px;
+	padding-top:5px;
+	text-align:center;
+	border:1px solid black;
+	cursor:pointer;
+}
+#member_info_section table tr{
+	height:30px;
+}
 
+/*----------------- member/info.jsp end -----------------*/
 
+/*----------------- member/pwd_change.jsp start -----------------*/
+#pwd_change_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;
+}
+#pwd_change_section form{
+	margin-top:100px;
+}
+#pwd_change_section input[type=password] {
+	width: 300px;
+	height: 40px;
+	border: 1px solid purple;
+	outline: none;
+	
+}
+#pwd_change_section input[type=submit] {
+	width: 300px;
+	height: 40px;
+	border: 1px solid purple;
+	outline: none;
+	background: purple;
+	color: white;
+	font-size: 20px;
+}
+/*----------------- member/pwd_change.jsp end -----------------*/
 
+/*----------------- member/info_change.jsp start -----------------*/
+#member_info_change_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;
+}
+#member_info_change_section form{
+	margin-top:100px;
+}
+/*----------------- member/info_change.jsp end -----------------*/
 
+/*----------------- board/board_write.jsp start -----------------*/
+#board_write_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;
+}
+/*----------------- board/board_write.jsp end -----------------*/
 
+/*----------------- board/board_list.jsp start -----------------*/
+#board_list_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;
+}
+#board_list_section table{
+	border-collapse: collapse;
+}
+#board_list_section table td{
+	border:1px solid black;
+}
 
+/*----------------- board/board_list.jsp end -----------------*/
 
+/*----------------- board/board_content.jsp start -----------------*/
+#board_content_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;
+}
+#board_content_section table{
+	border-collapse: collapse;
+	
+}
+#board_content_section table td{
+	border:1px solid black;
+}
+#board_content_delete {
+	display: none;
+}
 
+/*----------------- board/board_content.jsp end -----------------*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*----------------- board/board_update.jsp start -----------------*/
+#board_update_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+/*----------------- board/board_update.jsp end -----------------*/
