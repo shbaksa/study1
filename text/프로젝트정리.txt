@@ -12,3 +12,27 @@ mw_0614 > javascript / form select
 mw_0615 > javascript / form multi_input / jsp board dat처음
 mw_0616 > jsp / open(창띄우기) form(1개폼에 2개전송) memo 처음
 mw_0617 > dat 계속
+mw_0620 > javascript / this mouseover,out / db QnA 
+mw_0621 > javascript / change keyevent 문자출력제한 keypress 확인 / DB 페이지
+mw_0622 > javascript / blur 
+mw_0623 > javascript / onload mousemove(커서따라다니는값) scroll(휠값) // DB 업로드 이미지파일 업로드
+mw_0624 > javascript / 글자열 자르고 추가 // DB 로그인 로그아웃 // object request,session 객체 설명파일
+mw_0627 > javascript / 배열 디스플레이창띄우기 math(내림올림) move(setInterval), setTimeout(페이지이동) // DB 로그인확인 아이디체크 비밀번호체크 ajax
+mw_0628 > javascript / date 날짜 move 이동 // DB ajax 로그인 아이디찾기 비밀번호찾기
+mw_0629 > javascript / isNaN(숫자만입력받았는지 확인 문자열false) 부모자식창 // jsp radio 투표 그래프표 나타내기
+mw_0630 > jsp / select opstion 태그 value 값 확인 / 주소입력창 띄우기 jar 파일이용
+mw_0701 > jsp / 달력만들기 날짜 구하기 / cookie 쿠키값이용하기
+mw_0704 > jsp / Dao 다오 처음 jsp파일 java파일 따로만들기
+mw_0705 > javascript / 레이어 숨겼다가 나타내기 스크린 좌표알아내기 레이어크기줄이기 배열출력 / DB innerHTML 활용 Dao활용
+mw_0706 > javascript / 이미지파일자동넘김, a태그에서 자바스크립트 활용, rollover(mouseover,out), click태그toggle // DB Dao활용 테이블
+mw_0707 > jsp / DB 페이지 Dao로 활용
+mw_0708 > jsp / DB 이미지업로드 Dao로 활용
+mw_0711 > jsp / DB 비밀체크 Dao로 활용 , 메뉴 mouseover 부메뉴창 띄우기, 로그인 회원페이지
+mw_0712 > jsp / DB 게시판 댓글까지 Dao 
+mw_0713 > EL문 / Jquery script 이벤트 변경 attr 속성변경, css 스타일변경, / jstl choose(switch foreach(while for) if multi_if out(출력) set(변수선언) 
+mw_0714 > ArrayList<> 설명 / board arraylist 사용 / jquery addclass form attr toggle / El문 페이지
+mw_0715 > include top(꼭대기층) foot(맨아래층) index(body)
+----------------------------------------------------------------------------------
+mw_jquery
+0719 가로세로크기 키우기 hasclass(class속성유무확인) srcoll(휠)
+0720 after before append prepend insert this

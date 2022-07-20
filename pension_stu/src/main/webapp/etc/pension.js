@@ -132,3 +132,8 @@ function board_content_del_form() {
 		document.getElementById("board_content_delete").style.display = "table-row";
 	}	
 //----------------- board/content.jsp end -----------------	
+
+//----------------- Gongji/update.jsp start -----------------	
+
+
+//----------------- Gongji/update.jsp end -----------------	

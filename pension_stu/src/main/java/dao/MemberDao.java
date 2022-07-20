@@ -158,6 +158,7 @@ public class MemberDao {
 		
 		
 		if(old_pwd.equals(dbpwd)) {
+			
 			sql = "update member set pwd=? where userid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pwd);

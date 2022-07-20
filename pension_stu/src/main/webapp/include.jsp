@@ -4,6 +4,13 @@
  <!-- 복사폼.jsp -->    
 <c:import url="../top.jsp"/>
    
+   	   
+   <div id="__section">
+   
+   
+   
+   
+   </div>
    	
    	
    	

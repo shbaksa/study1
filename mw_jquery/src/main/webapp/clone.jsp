@@ -20,12 +20,12 @@
 
 </script>
 </head>
-<body>	<!-- 복사폼.jsp -->
+<body>	<!-- .jsp -->
 
-	<input type="button" id="btn" value="작동">
+	<input type="button" id="btn" value="작                   동">
 	
 	<hr>
 	
-	<div id="aa"></div>
+	<div id="a1"></div>
 </body>
 </html>

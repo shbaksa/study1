@@ -1,0 +1,6 @@
+ create table gongji(
+    -> id int auto_increment primary key,
+    -> title char(100),
+    -> content text,
+    -> writeday date
+    -> , gubun int);

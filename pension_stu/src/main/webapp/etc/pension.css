@@ -283,3 +283,58 @@ body {
 	text-align: center;	
 }
 /*----------------- board/board_update.jsp end -----------------*/
+
+/*----------------- Gongji/Gongji_write.jsp start -----------------*/
+#gongji_write_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+
+/*----------------- Gongji/Gongji_write.jsp end -----------------*/
+
+/*----------------- Gongji/Gongji_list.jsp start -----------------*/
+#gongji_list_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+#gongji_list_section table {
+	border-collapse: collapse;	
+}
+#gongji_list_section table td{
+	border-top:1px solid black;
+}
+/*----------------- Gongji/Gongji_list.jsp end -----------------*/
+
+/*----------------- Gongji/Gongji_content.jsp start -----------------*/
+#gongji_content_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+#gongji_content_section table {
+	border-collapse: collapse;	
+}
+#gongji_content_section table td{
+	border:1px solid black;
+}
+/*----------------- Gongji/Gongji_content.jsp end -----------------*/
+
+/*----------------- Gongji/Gongji_update.jsp start -----------------*/
+#gongji_update_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+#gongji_update_section table {
+	border-collapse: collapse;	
+}
+#gongji_update_section table td{
+	border:1px solid black;
+}
+/*----------------- Gongji/Gongji_update.jsp end -----------------*/

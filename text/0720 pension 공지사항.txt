@@ -1,0 +1,11 @@
+공지사항
+
+차이점 : 오직 관리자만 글쓰기, 수정, 삭제 가능
+
+사용자 : readonly
+
+공지사항 테이블 gongji
+
+항목 : 제목, 내용, 작성일, 구분 
+
+id, title, content, writeday, gubun

@@ -5,7 +5,6 @@
 <%
 	BoardDao bdao = new BoardDao();
 	bdao.list(request);
-
 %>
  <!-- board/list.jsp -->    
 <c:import url="../top.jsp"/>
@@ -14,10 +13,11 @@
    	<table width="700" align="center">
    	<caption><h2>게시판 목록</h2></caption>
    	<tr>
-   	<td width="400">제목</td>
+   	<td width="400" >제목</td>
    	<td>아이디</td>
    	<td>조회수</td>
    	<td>작성일</td>
+   	
    	</tr>
 	
 	<c:forEach items="${list}" var="bdto" >
