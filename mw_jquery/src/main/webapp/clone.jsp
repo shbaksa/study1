@@ -22,10 +22,10 @@
 </head>
 <body>	<!-- .jsp -->
 
-	<input type="button" id="btn" value="작                   동">
+	<!-- <input type="button" id="btn" value="작                   동">
 	
-	<hr>
+	<hr> -->
 	
-	<div id="a1"></div>
+	<div id="aa"></div>
 </body>
 </html>

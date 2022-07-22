@@ -17,5 +17,6 @@
   <module moduleId="org.eclipse.jst.jee.server:mw_0629" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:pension_m" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:mw_0715" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:mw_0627" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:mw_0714" serverId="Tomcat v9.0 Server at localhost"/>
 </modules>

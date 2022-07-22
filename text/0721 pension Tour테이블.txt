@@ -1,0 +1,12 @@
+여행후기 : 로그인한 회원만 가능
+테이블 : tour , TourDao,TourDto
+
+항목
+
+id int
+title
+userid
+content
+fname
+readnum
+writeday

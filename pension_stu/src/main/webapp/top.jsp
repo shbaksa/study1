@@ -46,7 +46,7 @@
 				<li id="main" onmouseover="view(3)" onmouseout="hide(3)">커뮤니티
 					<ul class="sub">
 						<li><a href="../gongji/list.jsp">공지사항</a></li>
-						<li>여행후기</li>
+						<li><a href="../tour/list.jsp">여행후기</a></li>
 						<li><a href="../board/list.jsp">자유게시판</a></li>
 					</ul>
 				</li>

@@ -338,3 +338,63 @@ body {
 	border:1px solid black;
 }
 /*----------------- Gongji/Gongji_update.jsp end -----------------*/
+
+/*----------------- tour/list.jsp start -----------------*/
+#tour_list_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+#tour_list_section table {
+	border-collapse: collapse;	
+}
+#tour_list_section table td{
+	border:1px solid black;
+}
+/*----------------- tour/list.jsp end -----------------*/
+
+/*----------------- tour/list.jsp start -----------------*/
+#tour_write_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+#tour_write_section table {
+	border-collapse: collapse;	
+}
+#tour_write_section table td{
+	border:1px solid black;
+}
+/*----------------- tour/list.jsp end -----------------*/
+
+/*----------------- tour/list.jsp start -----------------*/
+#tour_content_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+#tour_content_section table {
+	border-collapse: collapse;	
+}
+#tour_content_section table td{
+	border:1px solid black;
+}
+/*----------------- tour/list.jsp end -----------------*/
+
+/*----------------- tour/list.jsp start -----------------*/
+#tour_update_section{
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	text-align: center;	
+}
+#tour_update_section table {
+	border-collapse: collapse;	
+}
+#tour_update_section table td{
+	border:1px solid black;
+}
+/*----------------- tour/list.jsp end -----------------*/

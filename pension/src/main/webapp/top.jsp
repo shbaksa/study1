@@ -53,6 +53,7 @@
      padding-left:0px;
      visibility:hidden;
      background:white;
+     padding-top:5px;
   }
   
   #second #right #main .sub li {
@@ -112,7 +113,7 @@
 <body> <!-- index.jsp -->
   <div id="first"> 펜션 오픈 기념 1박에 100원에 !!!  <span id="aa">X</span></div>
   <div id="second">
-    <div id="left"> CHANNY </div>
+    <div id="left"> <a href="../main/index.jsp"> CHANNY </a></div>
     <div id="right">
       <ul>
         <li id="main" onmouseover="view(0)" onmouseout="hide(0)"> 펜션소개 
@@ -139,7 +140,7 @@
         <li id="main" onmouseover="view(3)" onmouseout="hide(3)"> 커뮤니티 
            <ul class="sub">
              <li> <a href="../gongji/list.jsp"> 공지사항 </a></li>
-             <li> 여행후기 </li>
+             <li> <a href="../tour/list.jsp"> 여행후기 </a></li>
              <li> <a href="../board/list.jsp"> 자유게시판 </a></li>
            </ul>
         </li>

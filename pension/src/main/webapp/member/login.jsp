@@ -43,8 +43,8 @@
       }
     %>
     <form method="post" action="login_ok.jsp">
-      <input type="text" name="userid" placeholder="아이디"> <p>
-      <input type="password" name="pwd" placeholder="비밀번호"> <p>
+      <input type="text" name="userid" placeholder="아이디" value="channy"> <p>
+      <input type="password" name="pwd" placeholder="비밀번호" value="1111"> <p>
       <input type="submit" value="로그인">
     </form>
   </div>
