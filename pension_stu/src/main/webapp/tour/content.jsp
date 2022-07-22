@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  <!-- jstl에서 function  -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!-- jstl에서 function  -->
 <!-- tour/content.jsp -->
 <%@ page import="dao.TourDao"%>
 <%
@@ -9,8 +10,36 @@ TourDao tdao = new TourDao();
 tdao.content(request);
 %>
 <c:import url="../top.jsp" />
+<style>
+  #zoom_id {
+     position:absolute;
+     visibility:hidden;
+   }
+</style>
+<script>
+ function zoom(my)
+ {   
+	 document.getElementById("zoom_id").style.visibility="visible";
+	 document.getElementById("zoom_img").src=my;
+	 center_img();
+ }
+ function center_img()
+ { 
+	 if(innerWidth>1000) // 브라우저의 가로가 1000px이상인 경우에만 동작
+	 {	 
+	   var w=(innerWidth-600)/2;
+	   document.getElementById("zoom_id").style.left=w+"px";
+	   // 그림을 브라우저의 가로기준으로 중앙에 배치
+	 }
+ }
+ function hide(my)
+ {
+	 my.style.visibility="hidden";
+ }
+ window.onresize=center_img;
+</script>
 
-
+<div id="zoom_id" onclick="hide(this)"><img id="zoom_img" width="600"><span id="dd"></span></div>
 <div id="tour_content_section">
 
 	<table width="900" align="center">
@@ -32,23 +61,20 @@ tdao.content(request);
 		<tr>
 			<td>사진</td>
 			<td colspan="3">
-			
-			<!-- tdto.file => 배열 for구문 -->
-			${fn:length(tdto.temp)} <!-- 배열크기 구하기 -->
-			,
-			${tdto.num }
-			<%-- <c:forEach var="i" begin="0" end="${fn:length(tdto.temp)-1}"> --%>
-			<c:forEach var="i" begin="0" end="${tdto.num-1}">
-			<img src="../tour/img/${tdto.temp[i]}" width="150" height="150">
-			
-			</c:forEach>
-			
-			 <%-- <!-- tdto.file => 배열 while 구문 -->
-     	  	
-     	  	 <c:forEach items="${tdto.file}" var="my">
-     	    	 <img src="img/${my}" width="100"> 
-      	 	 </c:forEach>  --%>
-			
+				<%-- <!-- tdto.file => 배열 for구문 --> ${fn:length(tdto.temp)} <!-- 배열크기 구하기 -->
+				, ${tdto.num } <c:forEach var="i" begin="0" end="${fn:length(tdto.temp)-1}">
+				<c:forEach var="i" begin="0" end="${tdto.num-1}">
+					<img src="../tour/img/${tdto.temp[i]}" width="150" height="150">
+ 
+				</c:forEach> --%>
+				
+				
+				
+				<!-- tdto.file => 배열 while 구문 --> 
+				<c:forEach items="${tdto.temp}" var="my">					
+					<img src="img/${my}" width="100" onclick="zoom(this.src)">
+				</c:forEach>
+
 			</td>
 		</tr>
 		<tr>
