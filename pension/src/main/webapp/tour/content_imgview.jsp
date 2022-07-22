@@ -30,28 +30,13 @@
    #zoom_id {
      position:absolute;
      visibility:hidden;
-     top:200px;
-  
-   }
-   #mo {
-     position:absolute;
-     left:0px;
-     top:0px;
-     width:100%;
-     height:100%;
-     visibility:hidden;
-     background:rgba(240,240,240,0.6);
-      
    }
 </style>
 <script>
  function zoom(my)
  {   
-	 document.getElementById("mo").style.visibility="visible"; // 회색창 보이기
-	 document.getElementsByTagName("body")[0].style.overflow="hidden"; 
 	 document.getElementById("zoom_id").style.visibility="visible";
 	 document.getElementById("zoom_img").src=my;
-	  
 	 center_img();
  }
  function center_img()
@@ -66,14 +51,10 @@
  function hide_img(my)
  {
 	 my.style.visibility="hidden";
-	 document.getElementById("mo").style.visibility="hidden"; // 회색창 닫기
-	 document.getElementsByTagName("body")[0].style.overflow="auto";
  }
  window.onresize=center_img;
 </script>
-<div id="mo"> <!-- 밖의 회색부분 -->
-  <div id="zoom_id" onclick="hide_img(this)"><img style="opacity:1" id="zoom_img" width="600"><span id="dd"></span></div>
-</div>
+  <div id="zoom_id" onclick="hide_img(this)"><img id="zoom_img" width="600"><span id="dd"></span></div>
   <div id="section">
     <table width="700" align="center">
       <caption> <h2> 여 행 후 기 </h2> </caption>

@@ -32,14 +32,14 @@ tdao.content(request);
 	   // 그림을 브라우저의 가로기준으로 중앙에 배치
 	 }
  }
- function hide(my)
+ function hide_img(my)
  {
 	 my.style.visibility="hidden";
  }
  window.onresize=center_img;
 </script>
 
-<div id="zoom_id" onclick="hide(this)"><img id="zoom_img" width="600"><span id="dd"></span></div>
+<div id="zoom_id" onclick="hide_img(this)"><img id="zoom_img" width="600"><span id="dd"></span></div>
 <div id="tour_content_section">
 
 	<table width="900" align="center">
