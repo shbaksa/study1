@@ -17,6 +17,7 @@ tdao.content(request);
    }
 </style>
 <script>
+
  function zoom(my)
  {   
 	 document.getElementById("zoom_id").style.visibility="visible";
@@ -85,7 +86,7 @@ tdao.content(request);
 			<td colspan="4" align="center"><a href="../tour/list.jsp">목록</a>
 				<c:if test="${userid==tdto.userid}">
 					<a href="../tour/update.jsp?id=${tdto.id}">수정</a>
-					<a href="../tour/delete.jsp?id=${tdto.id}">삭제</a>
+					<a href="../tour/delete.jsp?id=${tdto.id}&fname=${tdto.temp2}" onclick="atest()">삭제</a>
 				</c:if></td>
 		</tr>
 

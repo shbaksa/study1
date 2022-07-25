@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import dto.GongjiDto;
 
 public class GongjiDao {
@@ -168,7 +169,33 @@ public class GongjiDao {
 		
 		response.sendRedirect("../gongji/content.jsp?id="+id);
 	}
-
+	
+	public void getThree(HttpServletRequest request) throws Exception{
+		
+		sql = "select * from gongji order by id desc limit 3";
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		rs = pstmt.executeQuery();
+		
+		ArrayList<GongjiDto> glist = new ArrayList<GongjiDto>();
+		
+		while(rs.next()) {
+			GongjiDto gdto = new GongjiDto();
+			
+			if(rs.getString("title").length() > 13) 
+				gdto.setTitle(rs.getString("title").substring(0,11)+"..");			
+			else 
+				gdto.setTitle(rs.getString("title"));
+			
+			gdto.setId(rs.getInt("id"));
+			gdto.setWriteday(rs.getString("writeday"));
+			
+			glist.add(gdto);		
+		}
+		
+		request.setAttribute("glist", glist);
+	}
 }
 
 

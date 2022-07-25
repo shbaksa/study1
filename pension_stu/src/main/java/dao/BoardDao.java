@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import dto.BoardDto;
 
+
 // 자유게시판
 public class BoardDao {
 
@@ -339,6 +340,33 @@ public class BoardDao {
 		
 		
 		
+	}
+	
+	public void getThree(HttpServletRequest request) throws Exception{
+		
+		sql = "select * from board order by id desc limit 3";
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		rs = pstmt.executeQuery();
+		
+		ArrayList<BoardDto> blist = new ArrayList<BoardDto>();
+		
+		while(rs.next()) {
+			BoardDto bdto = new BoardDto();
+			
+			if(rs.getString("title").length() > 13) 
+			bdto.setTitle(rs.getString("title").substring(0,11)+"...");
+			else
+				bdto.setTitle(rs.getString("title"));
+			
+			bdto.setId(rs.getInt("id"));
+			bdto.setWriteday(rs.getString("writeday"));
+			
+			blist.add(bdto);		
+		}
+		
+		request.setAttribute("blist", blist);
 	}
 }
 

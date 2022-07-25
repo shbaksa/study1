@@ -10,6 +10,13 @@
   body {
     margin:0px;
   }
+  a {
+    text-decoration:none;
+    color:black;
+  }
+  a:hover {
+    text-decoration:underline;
+  }
   #first {
     width:1100px;
     height:33px;
@@ -75,7 +82,7 @@
   #fourth > div {
     width:350px;
     height:130px;
-    border:1px solid red;
+    /* border:1px solid red; */
     display:inline-block;
   }
   #fifth {

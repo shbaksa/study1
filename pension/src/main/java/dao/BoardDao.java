@@ -306,6 +306,38 @@ public class BoardDao {
     		
     	}
     }
+    
+    public void getThree(HttpServletRequest request) throws Exception
+    {
+    	// 쿼리 생성
+    	String sql="select * from board order by id desc limit 3";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	
+    	// 쿼리 실행
+    	ResultSet rs=pstmt.executeQuery();
+    	
+    	// ArrayList
+    	ArrayList<BoardDto> blist=new ArrayList<BoardDto>();
+    	
+    	// rs => dto  => blist
+    	while(rs.next()) 
+    	{
+    	   BoardDto bdto=new BoardDto();
+    	   bdto.setId(rs.getInt("id"));
+    	   if(rs.getString("title").length()>13)
+    		   bdto.setTitle(rs.getString("title").substring(0,11)+"··.");
+    	   else
+    		   bdto.setTitle(rs.getString("title"));
+    	   bdto.setWriteday(rs.getString("writeday"));
+    	   
+    	   blist.add(bdto);    	   
+    	}
+    	
+    	request.setAttribute("blist", blist);
+    	
+    }
 }
 
 

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import dto.BoardDto;
 import dto.TourDto;
 
 public class TourDao {
@@ -158,7 +159,66 @@ public class TourDao {
 		
 		request.setAttribute("tdto",tdto);
     }
+    
+    public void getThree(HttpServletRequest request) throws Exception
+    {
+    	// 쿼리 생성
+    	String sql="select * from tour order by id desc limit 3";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	
+    	// 쿼리 실행
+    	ResultSet rs=pstmt.executeQuery();
+    	
+    	// ArrayList
+    	ArrayList<TourDto> tlist=new ArrayList<TourDto>();
+    	
+    	// rs => dto  => tlist
+    	while(rs.next()) 
+    	{
+    	   TourDto tdto=new TourDto();
+    	   tdto.setId(rs.getInt("id"));
+    	   if(rs.getString("title").length()>13)
+    		   tdto.setTitle(rs.getString("title").substring(0,11)+"··.");
+    	   else
+    		   tdto.setTitle(rs.getString("title"));
+    	   tdto.setWriteday(rs.getString("writeday"));
+    	   
+    	   tlist.add(tdto);    	   
+    	}
+    	
+    	request.setAttribute("tlist", tlist);
+    	
+    }
+    
+    public void update(HttpServletRequest request) throws Exception
+    {
+    	// request
+    	String id=request.getParameter("id");
+    	
+    	// 쿼리 생성
+    	String sql="select * from tour where id=?";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, id);
+    	
+    	// 쿼리 실행
+    	ResultSet rs=pstmt.executeQuery();
+    	rs.next();
+    	
+    	// rs => dto
+    	TourDto tdto=new TourDto();
+    	tdto.setId(rs.getInt("id"));
+    	tdto.setTitle(rs.getString("title"));
+    	tdto.setContent(rs.getString("content"));
+    	tdto.setFile(rs.getString("fname").split(","));
+    	
+    	request.setAttribute("tdto", tdto);
+    }
 }
+
 
 
 

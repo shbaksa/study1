@@ -3,7 +3,13 @@
 body {
 	margin: 0px;
 }
-
+a{
+	text-decoration: none;
+	color : black;
+}
+a:hover{
+	text-decoration: underline;
+}
 #first {
 	width: 1100px;
 	height: 33px;
@@ -87,7 +93,7 @@ body {
 #fourth>div {
 	width: 350px;
 	height: 130px;
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	display: inline-block;
 }
 
@@ -130,15 +136,15 @@ body {
 /*----------------- member/member_input end -----------------*/
 
 /*----------------- member/login.jsp start ----------------- */
-#login_section {
+/* #login_section {
 	width: 1100px;
-	height: 500px;
+	height: 800px;
 	margin: auto;
 	text-align: center;
 }
 
 #login_section input[type=text] {
-	margin-top:100px;
+	margin-top:50px;
 	width: 300px;
 	height: 40px;
 	border: 1px solid purple;
@@ -160,7 +166,8 @@ body {
 	background: purple;
 	color: white;
 	font-size: 20px;
-}
+} */
+
 /*----------------- member/login.jsp end ----------------- */
 
 /*----------------- member/info.jsp start -----------------*/
@@ -384,7 +391,7 @@ body {
 }
 /*----------------- tour/list.jsp end -----------------*/
 
-/*----------------- tour/list.jsp start -----------------*/
+/*----------------- tour/update.jsp start -----------------*/
 #tour_update_section{
 	width: 1100px;
 	height: 500px;
@@ -397,4 +404,4 @@ body {
 #tour_update_section table td{
 	border:1px solid black;
 }
-/*----------------- tour/list.jsp end -----------------*/
+/*----------------- tour/update.jsp end -----------------*/

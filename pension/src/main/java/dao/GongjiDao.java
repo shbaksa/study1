@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.BoardDto;
 import dto.GongjiDto;
 
 public class GongjiDao {
@@ -201,6 +202,38 @@ public class GongjiDao {
     	
     	// 이동
     	response.sendRedirect("content.jsp?id="+id);
+    }
+    
+    public void getThree(HttpServletRequest request) throws Exception
+    {
+    	// 쿼리 생성
+    	String sql="select * from gongji order by id desc limit 3";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	
+    	// 쿼리 실행
+    	ResultSet rs=pstmt.executeQuery();
+    	
+    	// ArrayList
+    	ArrayList<GongjiDto> glist=new ArrayList<GongjiDto>();
+    	
+    	// rs => dto  => blist
+    	while(rs.next()) 
+    	{
+    	   GongjiDto gdto=new GongjiDto();
+    	   gdto.setId(rs.getInt("id"));
+    	   if(rs.getString("title").length()>13)
+    		   gdto.setTitle(rs.getString("title").substring(0,11)+"··.");
+    	   else
+    		   gdto.setTitle(rs.getString("title"));
+    	   gdto.setWriteday(rs.getString("writeday"));
+    	   
+    	   glist.add(gdto);    	   
+    	}
+    	
+    	request.setAttribute("glist", glist);
+    	
     }
 }
 

@@ -4,6 +4,18 @@ package dto;
 public class TourDto {
 
 	private int id, readnum, cnt, num;
+
+	private String title, userid, content, fname, writeday, firstimg, temp2;
+	private String[] temp;
+	
+	public String getTemp2() {
+		return temp2;
+	}
+
+	public void setTemp2(String temp2) {
+		this.temp2 = temp2;
+	}
+
 	public int getNum() {
 		return num;
 	}
@@ -12,9 +24,6 @@ public class TourDto {
 		this.num = num;
 	}
 
-	private String title, userid, content, fname, writeday, firstimg;
-	private String[] temp;
-	
 	public String[] getTemp() {
 		return temp;
 	}

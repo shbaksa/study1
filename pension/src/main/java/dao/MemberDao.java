@@ -119,7 +119,8 @@ public class MemberDao {
     		
     		// login로 이동 => 로그인을 실패한 후 이동
     		
-    		response.sendRedirect("login.jsp?chk=1");
+    		session.setAttribute("chk", "5");
+    		response.sendRedirect("login.jsp");
     	}
     	
     }
@@ -256,6 +257,80 @@ public class MemberDao {
     	// 이동
     	response.sendRedirect("member_info.jsp");
     	
+    }
+    
+    public void userid_search(HttpServletRequest request,HttpServletResponse response,
+    		HttpSession session) throws Exception
+    {
+    	// request
+    	request.setCharacterEncoding("utf-8");
+    	String name=request.getParameter("name");
+    	String phone=request.getParameter("phone");
+    	
+    	// 쿼리 생성
+    	String sql="select userid from member where name=? and phone=?";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, name);
+    	pstmt.setString(2, phone);
+    	
+    	// 쿼리 실행
+    	ResultSet rs=pstmt.executeQuery();
+    	
+    	if(rs.next()) // 이름,전화번호가 맞다
+    	{
+    		session.setAttribute("imsiuser", rs.getString("userid"));
+    		session.setAttribute("chk", "1");
+    		System.out.println(request.getAttribute("userid"));
+    		System.out.println(request.getAttribute("chk"));
+    		response.sendRedirect("login.jsp");
+    		
+    	}
+    	else
+    	{
+    		session.setAttribute("chk", "2");
+    		response.sendRedirect("login.jsp");
+    	}
+    	
+    }
+    
+    public void pwd_search(HttpServletRequest request, HttpServletResponse response,
+    		HttpSession session) throws Exception
+    {
+    	// request
+    	request.setCharacterEncoding("utf-8");
+    	String name=request.getParameter("name");
+    	String userid=request.getParameter("userid");
+    	String phone=request.getParameter("phone");
+    	
+    	// 쿼리 실행
+    	String sql="select pwd from member where name=? and userid=? and phone=?";
+    	
+    	// 심부름꾼 실행
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, name);
+    	pstmt.setString(2, userid);
+    	pstmt.setString(3, phone);
+    	
+    	// 쿼리 실행
+    	ResultSet rs=pstmt.executeQuery();
+    	
+    	if(rs.next())
+    	{
+    		session.setAttribute("pwd", rs.getString("pwd"));
+    		session.setAttribute("chk", "3");
+    		pstmt.close();
+    		conn.close();
+    		response.sendRedirect("login.jsp");
+    	}
+    	else
+    	{
+    		pstmt.close();
+    		conn.close();
+    		session.setAttribute("chk", "4");
+    		response.sendRedirect("login.jsp");
+    	}
     }
 }
 

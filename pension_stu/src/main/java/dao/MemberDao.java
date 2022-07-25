@@ -17,7 +17,7 @@ public class MemberDao {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	String sql = "";
-	String userid, name, pwd, email, phone , dbpwd;
+	String userid, name, pwd, email, phone, dbpwd;
 
 	public MemberDao() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -102,7 +102,9 @@ public class MemberDao {
 			// login로 이동 => 로그인을 실패한 후 이동
 			// request.setAttribute("loginerr", "1");
 			// response.sendRedirect("../member/login.jsp");
-			response.sendRedirect("../member/login.jsp?loginerr=1");
+			session.setAttribute("chk", "5");
+			response.sendRedirect("../member/login.jsp");
+			// response.sendRedirect("../member/login.jsp?loginerr=1"); 
 		}
 	}
 
@@ -125,7 +127,7 @@ public class MemberDao {
 
 		rs.next();
 		// jsp에서 필요한 내용을 전부 request로 각각 생성도 가능
-	
+
 		/*
 		 * request.setAttribute("userid", rs.getString("userid"));
 		 * request.setAttribute("name", rs.getString("name"));
@@ -139,49 +141,48 @@ public class MemberDao {
 		mdto.setName(rs.getString("name"));
 		mdto.setEmail(rs.getString("email"));
 		mdto.setPhone(rs.getString("phone"));
-		
-		request.setAttribute("mdto",mdto);
+
+		request.setAttribute("mdto", mdto);
 	}
-	
-	public void pwd_change_ok(HttpServletRequest request,HttpServletResponse response,HttpSession session) throws Exception{
-		
+
+	public void pwd_change_ok(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws Exception {
+
 		String old_pwd = request.getParameter("old_pwd");
 		pwd = request.getParameter("pwd");
-		
+
 		sql = "select pwd from member where userid=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, session.getAttribute("userid").toString());
-		
+
 		rs = pstmt.executeQuery();
 		rs.next();
 		dbpwd = rs.getString("pwd");
-		
-		
-		if(old_pwd.equals(dbpwd)) {
-			
+
+		if (old_pwd.equals(dbpwd)) {
+
 			sql = "update member set pwd=? where userid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pwd);
 			pstmt.setString(2, session.getAttribute("userid").toString());
 			pstmt.executeUpdate();
-			
+
 			rs.close();
 			pstmt.close();
 			conn.close();
 			session.invalidate();
 			response.sendRedirect("../member/login.jsp");
-		}
-		else {
+		} else {
 			rs.close();
 			pstmt.close();
 			conn.close();
-			
+
 			response.sendRedirect("../member/pwd_change.jsp?pwdchangeerr=1");
 		}
 	}
-	
-	public void info_change(HttpServletRequest request, HttpSession session) throws Exception{
-		
+
+	public void info_change(HttpServletRequest request, HttpSession session) throws Exception {
+
 		userid = session.getAttribute("userid").toString();
 
 		sql = "select * from member where userid=?";
@@ -192,34 +193,103 @@ public class MemberDao {
 		rs = pstmt.executeQuery();
 
 		rs.next();
-	
+
 		// jsp에서 필요한 내용을 하나의 객체로 만들어서 사용(DTO)
 		MemberDto mdto = new MemberDto();
 		mdto.setUserid(rs.getString("userid")); // 세션변수에 있어서 없어도 된다.
 		mdto.setName(rs.getString("name")); // 세션변수에 있어서 없어도 된다.
 		mdto.setEmail(rs.getString("email"));
 		mdto.setPhone(rs.getString("phone"));
-		
-		request.setAttribute("mdto",mdto);
+
+		request.setAttribute("mdto", mdto);
 	}
-	
-	public void info_change_ok(HttpServletRequest request , HttpServletResponse response, HttpSession session) throws Exception{
-		
+
+	public void info_change_ok(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws Exception {
+
 		email = request.getParameter("email");
 		phone = request.getParameter("phone");
-		
+
 		sql = "update member set email=?, phone=? where userid=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, email);
 		pstmt.setString(2, phone);
 		pstmt.setString(3, session.getAttribute("userid").toString());
-		
+
 		pstmt.executeUpdate();
-		
+
 		pstmt.close();
 		conn.close();
-		
+
 		response.sendRedirect("../member/info.jsp");
+	}
+
+	public void member_login_userid_search(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws Exception {
+
+		request.setCharacterEncoding("utf-8");
+		name = request.getParameter("name");
+		phone = request.getParameter("phone");
+
+		sql = "select userid from member where name=? && phone=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, name);
+		pstmt.setString(2, phone);
+
+		rs = pstmt.executeQuery();
+
+		if (rs.next()) { // 이름,전화번호가 맞다
+
+			session.setAttribute("useridSearch", rs.getString("userid"));
+			session.setAttribute("chk", "1");
+			/*
+			 * System.out.println(request.getAttribute("useridSearch"));
+			 * System.out.println(request.getAttribute("chk"));
+			 */
+			pstmt.close();
+			conn.close();
+			rs.close();
+			response.sendRedirect("../member/login.jsp");
+
+		} else {
+			session.setAttribute("chk", "2");		
+			pstmt.close();
+			conn.close();
+			rs.close();
+			response.sendRedirect("../member/login.jsp");
+		}
+	}
+
+	public void member_login_pwd_search(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
+		
+		request.setCharacterEncoding("utf-8");
+		userid = request.getParameter("userid");
+		name = request.getParameter("name");
+		phone = request.getParameter("phone");
+		
+		sql = "select pwd from member where userid=? && name=? && phone=?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, userid);
+		pstmt.setString(2, name);
+		pstmt.setString(3, phone);
+		
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			session.setAttribute("pwdSearch", rs.getString("pwd"));
+			session.setAttribute("chk", "3");
+			pstmt.close();
+			conn.close();
+			rs.close();
+			response.sendRedirect("../member/login.jsp");
+		}
+		else {
+			session.setAttribute("chk", "4");
+			pstmt.close();
+			conn.close();
+			rs.close();
+			response.sendRedirect("../member/login.jsp");
+		}
 	}
 }
 
