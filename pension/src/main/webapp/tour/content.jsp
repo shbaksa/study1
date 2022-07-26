@@ -107,7 +107,7 @@
          <a href="list.jsp"> 목록 </a>
         <c:if test="${userid == tdto.userid}">  <!-- 회원 자신의 글일 경우 -->
          <a href="update.jsp?id=${tdto.id}"> 수정 </a>
-         <a href="delete.jsp?id=${tdto.id}&fname=${tdto.fname}"> 삭제 </a>
+         <a href="delete.jsp?id=${tdto.id}"> 삭제 </a>
         </c:if>
        </td>
      </tr>

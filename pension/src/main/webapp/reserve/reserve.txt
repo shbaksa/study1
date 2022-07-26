@@ -1,0 +1,12 @@
+예약하기  
+폴더 : reserve  =>  reserve.jsp
+dao : ReserveDao
+dto  : ReserveDto
+
+달력의 형태를 이용한다
+
+1. 날짜가 출력되는 td 내에 방정보를 출력한다..
+  => 방정보를 출력하기 위해  방의 정보를 담고 있는 방테이블이 필요
+
+* 방의 정보를 저장하는 테이블 : room
+

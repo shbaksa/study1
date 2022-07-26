@@ -32,18 +32,23 @@ tdao.list(request);
 				<td>${tdto.userid}</td>
 				<td><a href="../tour/readnum.jsp?id=${tdto.id}">${tdto.title}</a></td>
 				<%-- <td><img src="../tour/img/${tdto.fname}" width="50" height="50"></td> --%>
+				<c:if test="${tdto.firstimg!=''}">
 				<td><img src="../tour/img/${tdto.firstimg}" width="30" height="30">외${tdto.cnt-1}개</td>
+				</c:if>
+				<c:if test="${tdto.firstimg==''}">
+				<td>X</td>
+				</c:if>
 				<td>${tdto.readnum}</td>
 				<td>${tdto.writeday}</td>
 			</tr>
 		</c:forEach>
 		<c:if test="${userid!=null}">
 			<tr>
-				<td colspan="5" aling="center"><a href="../tour/write.jsp">글작성</a></td>
+				<td colspan="5" align="center"><a href="../tour/write.jsp">글작성</a></td>
 			</tr>
 		</c:if>
 	</table>
-
+	
 </div>
 
 

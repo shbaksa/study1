@@ -68,14 +68,16 @@ tdao.content(request);
 					<img src="../tour/img/${tdto.temp[i]}" width="150" height="150">
  
 				</c:forEach> --%>
-				
-				
-				
+		
 				<!-- tdto.file => 배열 while 구문 --> 
+				<c:if test="${tdto.temp2!=''}">
 				<c:forEach items="${tdto.temp}" var="my">					
 					<img src="img/${my}" width="100" onclick="zoom(this.src)">
 				</c:forEach>
-
+				</c:if>
+				<c:if test="${tdto.temp2==''}">
+				이미지 없음
+				</c:if>
 			</td>
 		</tr>
 		<tr>

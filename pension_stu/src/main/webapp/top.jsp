@@ -39,7 +39,7 @@
 				</li>
 				<li id="main" onmouseover="view(2)" onmouseout="hide(2)">예약관련
 					<ul class="sub">
-						<li>예약안내</li>
+						<li><a href="../reserve/reserve.jsp">예약안내</a></li>
 						<li>예약하기</li>
 					</ul>
 				</li>

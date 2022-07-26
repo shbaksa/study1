@@ -1,0 +1,8 @@
+create table room(
+    -> id int auto_increment primary key,
+    -> bang char(10),
+    -> min int,
+    -> max int,
+    -> price int,
+    -> content text,
+    -> state int default 0);

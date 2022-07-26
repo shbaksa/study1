@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-
 import dto.TourDto;
 
 public class TourDao {
@@ -46,6 +45,9 @@ public class TourDao {
 		while (file.hasMoreElements()) { // 여러개의 파일을 , 구분으로 배열로 만듬
 			fname = fname + multi.getFilesystemName(file.nextElement().toString()) + ",";
 		}
+
+		// null값 없애기
+		fname = fname.replace("null,","");
 
 		title = multi.getParameter("title");
 		content = multi.getParameter("content");
@@ -132,19 +134,19 @@ public class TourDao {
 		tdto.setTitle(rs.getString("title"));
 		tdto.setUserid(rs.getString("userid"));
 		tdto.setWriteday(rs.getString("writeday"));
-		
+
 		// tdto.setFname(rs.getString("fname")); 여러개의 사진이 들어올때
-		
+
 		// fname을 ,로 구분된 파일을 배열로 변경후 dto에 temp배열에 저장
 		// 92.jpg,121.jpg,5.jpg,41.jpg,3.jpg,2.jpg,12.jpg,
 		String temp2 = rs.getString("fname");
 		tdto.setTemp2(temp2);
 		String[] temp = rs.getString("fname").split(",");
-		tdto.setTemp(temp); 
-		
+		tdto.setTemp(temp);
+
 		int num = temp.length;
 		tdto.setNum(num);
-		
+
 		request.setAttribute("tdto", tdto);
 
 		rs.close();
@@ -152,160 +154,141 @@ public class TourDao {
 		conn.close();
 
 	}
-	
-	public void getThree(HttpServletRequest request) throws Exception{
-		
+
+	public void getThree(HttpServletRequest request) throws Exception {
+
 		sql = "select * from tour order by id desc limit 3";
-		
+
 		pstmt = conn.prepareStatement(sql);
-		
+
 		rs = pstmt.executeQuery();
-		
+
 		ArrayList<TourDto> tlist = new ArrayList<TourDto>();
-		
-		while(rs.next()) {
+
+		while (rs.next()) {
 			TourDto tdto = new TourDto();
-			
-			if(rs.getString("title").length() > 13) 
-			tdto.setTitle(rs.getString("title").substring(0,11)+"...");
+
+			if (rs.getString("title").length() > 13)
+				tdto.setTitle(rs.getString("title").substring(0, 11) + "...");
 			else
 				tdto.setTitle(rs.getString("title"));
-			
+
 			tdto.setId(rs.getInt("id"));
 			tdto.setWriteday(rs.getString("writeday"));
-			
-			tlist.add(tdto);		
+
+			tlist.add(tdto);
 		}
-		
+
 		request.setAttribute("tlist", tlist);
 	}
-	
-	public void update(HttpServletRequest request) throws Exception{
-		
+
+	public void update(HttpServletRequest request) throws Exception {
+
 		id = request.getParameter("id");
-		
+
 		sql = "select * from tour where id=?";
-		
+
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
-		
+
 		rs = pstmt.executeQuery();
 		rs.next();
-		
+
 		TourDto tdto = new TourDto();
 		tdto.setId(rs.getInt("id"));
 		tdto.setTitle(rs.getString("title"));
 		tdto.setContent(rs.getString("content").replace("\r\n", "<br>"));
 		tdto.setTemp(rs.getString("fname").split(","));
-		
+
 		request.setAttribute("tdto", tdto);
-		
 
 	}
-	
-	public void reupdate(HttpServletRequest request , HttpServletResponse response) throws Exception{
-		
+
+	public void reupdate(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		path = request.getRealPath("/tour/img");
-		size = 1024*1024*30;
+		size = 1024 * 1024 * 30;
 		MultipartRequest multi = new MultipartRequest(request, path, size, "utf-8", new DefaultFileRenamePolicy());
-		
+
 		id = multi.getParameter("id");
-		String[] del = multi.getParameter("del").split(",");
-		int num=del.length;
-		String str = multi.getParameter("str");
+
+		String[] del = multi.getParameter("del").split(","); // 파일명1,파일명2,
+		int num = del.length;
+
+		for (int i = 0; i < num; i++) {
+
+			File imgFile = new File(path + "/" + del[i]);
+			if (imgFile.exists())
+				imgFile.delete();
+		}
+
+		String str = multi.getParameter("str"); // 계속 보관할 파일
+		// 새로 업로드 되는 파일의 이름을 저장
+
 		title = multi.getParameter("title");
 		content = multi.getParameter("content");
+
 		String fname = "";
-	
-		if(multi.getFilesystemName("fname1")!=null) {
+
+		Enumeration file = multi.getFileNames(); // 업로드 폼에 있는 input 태그의 이름 목록
 		
-			Enumeration file = multi.getFileNames();
-			
-		while(file.hasMoreElements())
-			fname = fname + multi.getFilesystemName(file.nextElement().toString())+",";
+		while (file.hasMoreElements())
+			fname = fname + multi.getFilesystemName(file.nextElement().toString()) + ",";
+		
+		// null값 제거
+		fname = fname.replace("null,","");
 		
 		fname = str + fname;
 		
-		}
-		else {
-			fname = str;			
-		}
 		
-		for (int i=0;i<num;i++) {
-			
-		File imgFile = new File(path+"/"+del[i]);
-		if(imgFile.exists())
-			imgFile.delete();
-		}
-		
+
 		sql = "update tour set title=?, content=?, fname=? where id=?";
-		
+
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, title);
 		pstmt.setString(2, content);
 		pstmt.setString(3, fname);
 		pstmt.setString(4, id);
-		
+
 		pstmt.executeUpdate();
-		
 
 		pstmt.close();
 		conn.close();
-		
-		response.sendRedirect("../tour/content.jsp?id="+id);
+
+		response.sendRedirect("../tour/content.jsp?id=" + id);
 	}
-	
-	public void redelete(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		
+
+	public void redelete(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		path = request.getRealPath("/tour/img");
-		
+
 		id = request.getParameter("id");
+
 		String[] fname = request.getParameter("fname").split(",");
 		int num = fname.length;
+
+		for (int i = 0; i < num; i++) {
+			File file = new File(path + "/" + fname[i]);
+			if (file.exists())
+				file.delete();
+		}
+
 		sql = "delete from tour where id=?";
-		
+
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
-		
+
 		pstmt.executeUpdate();
-		
-		for(int i=0;i<num;i++) {
-			File file = new File(path+"/"+fname[i]);
-				if(file.exists())
-					file.delete();
-		}
-		
+
 		pstmt.close();
 		conn.close();
-		
-		response.sendRedirect("../tour/list.jsp?id="+id);
+
+		response.sendRedirect("../tour/list.jsp?id=" + id);
 	}
-	
-	public void test(HttpServletRequest request) throws Exception{
-		
+
+	public void test(HttpServletRequest request) throws Exception {
+
 		System.out.println(request.getParameter("fname"));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

@@ -42,10 +42,15 @@ function imgUpCheck(upform){
 	var str = ""; // 삭제하지 않을 파일을 저장
 	for(i=0;i<len;i++){
 		
-		if(upform.imgDel[i].checked) // 참 => 삭제할 파일			
+	 	if(imgDel[i].checked) // 참 => 삭제할 파일			
 			del=del+imgDel[i].value+",";				
-		else // 거짓 => 삭제하지 않겟다			
-			str=str+imgDel[i].value+",";
+		else  // 거짓 => 삭제하지 않겟다			
+			str=str+imgDel[i].value+",";  
+	 
+		/* if(upform.imgDel[i].checked==false)		
+			str=str+imgDel[i].value+",";		
+		else 		
+			del=del+imgDel[i].value+",";  */
 		
 	}
 	
@@ -106,7 +111,7 @@ function imgUpCheck(upform){
 			</tr>
 			
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="글수정"></td>
+				<td colspan="2" align="center"><input type="submit"  value="글수정"></td>
 			</tr>
 		</table>
 	</form>

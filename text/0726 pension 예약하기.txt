@@ -1,0 +1,41 @@
+예약하기
+폴더 : reserve -> reserve.jsp
+dao : ReserveDao
+dto : ReserveDto
+
+달력의 형태를 이용한다
+
+1. 날짜가 출력되는 td 내에 방정보를 출력한다.
+  => 방정보를 출력하기 위해 방의 정보를 담고 있는 방테이블이 필요
+
+* 방의 정보를 저장하는 테이블 : room
+id int
+방이름 bang char(10)
+최소인원 min int
+최대인원 max int
+가격 price int
+방이름 bang char(50)
+객실소개 content text
+상태 state int default 0
+
+
+reserve.jsp => 방이름을 클릭 => reserve_next.jsp
+	      ( 정보 : 년 월 일 , 방id )
+
+기본정보 
+몇박? , 인원, 옵션(bbq, 재료등등) 
+
+숯패키지
+bbq(삼겹살 등등)
+  
+
+
+입실일 출력 몇박입력 select option
+
+
+
+
+
+
+
+

@@ -12,7 +12,7 @@
 </style>
  <script>
   var size=1; // id="outer"안에 있는 type='file'의 갯수 , name을 서로 다르게 하기 위해 사용
-  function add()
+  function add_file()
   {
 	  size++;
 	  var outer=document.getElementById("outer");
@@ -20,7 +20,7 @@
 	  outer.innerHTML=outer.innerHTML+inner;
 	  //alert(inner);
   }
-  function del()
+  function del_file()
   {
 	  if(size>1)
 	  {
@@ -44,8 +44,8 @@
       <tr>
         <td> 파 일 </td>
         <td id="outer"> 
-           <input type="button" onclick="add()" value="추가">
-           <input type="button" onclick="del()" value="삭제">
+           <input type="button" onclick="add_file()" value="추가">
+           <input type="button" onclick="del_file()" value="삭제">
            <p class="fname"> <input type="file" name="fname1"> </p> 
         </td>
       </tr>
