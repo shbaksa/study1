@@ -6,5 +6,5 @@
 
 <%
 	TourDao tdao = new TourDao();
-	tdao.update_ok(request, response);
+	//tdao.update_ok(request, response);
 %>

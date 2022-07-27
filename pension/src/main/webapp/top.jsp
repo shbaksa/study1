@@ -50,7 +50,7 @@
     width:140px;
   }
   #second > #right > ul > li:last-child {  /* 마지막 li태그의 길이는 크게 */
-    width:200px;
+    width:230px;
   }
   #second #right #main {  /* 주메뉴 */
      position:relative;

@@ -42,12 +42,18 @@
     	// total
     	var tt=ssprice+iiprice+ccprice+bbprice;
     	document.getElementById("total").innerText=new Intl.NumberFormat().format(tt);
+    	
+    	// form태그내에 총금액을 전달
+    	document.reser.total.value=tt;
     }
   </script>
   <body>
    
   <div id="section">
     <form name="reser" method="post" action="reserve_ok.jsp">
+      <input type="hidden" name="inday" value="${ymd}">
+      <input type="hidden" name="bang_id" value="${rdto.id}">
+      <input type="hidden" name="total" value="${rdto.price}">
       <table width="600" align="center">
        <caption> <h2>${rdto.bang} 예약 정보 </h2> </caption>
        <tr>
@@ -119,6 +125,9 @@
        <tr>
          <td> 총 가격 </td>
          <td colspan="3"> <span id="total"><fmt:formatNumber value="${rdto.price}" type="number"/></span>원 </td>
+       </tr>
+       <tr>
+         <td colspan="4" align="center"> <input type="submit" value="예약하기"> </td>
        </tr>
      </table>
     </form>

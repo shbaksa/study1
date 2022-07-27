@@ -1,0 +1,11 @@
+create table reserve(
+    -> id int auto_increment primary key,
+    -> inday date,
+    -> outday date,
+    -> userid char(10),
+    -> bang_id int,
+    -> inwon int,
+    -> charcoal int,
+    -> bbq int,
+    -> total int,
+    -> writeday date);

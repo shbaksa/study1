@@ -1,0 +1,14 @@
+1. join은 2개이상의 테이블에 필요한 데이터를 가져올때
+2. 필드명부분에 각각테이블의 읽어올 필드명을 적는다
+  테이블.필드명으로 적는다
+select reserve.*,room.bang from room, reserve where reserve.id=2 and room.id=reserve.bang_id;
+=> 예외 : 2개이상의 테이블에서 유일한 필드명은 테이블명을 생략해도 된다.
+select reserve.* , bang from room, reserve where reserve.id=2 and room.id=reserve.bang_id;
+3. 테이블명의 별칭을 정할 수 있다
+  테이블명 as 별칭
+select r2.* , r1.bang from room as r1 , reserve as r2 where r2.id=1 and r1.id=r2.bang_id;
+
+4. select 필드명 from 테이블1,테이블2 where 조건
+ select 필드명 from 테이블1 inner join 테이블2 on 조건
+
+select r2.*, r1.bang from room as r1 inner join reserve as r2 on r2.id=1 and r1.id=r2.bang_id;

@@ -9,7 +9,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dto.ReserveDto;
 import dto.RoomDto;
 
 public class ReserveDao {
@@ -118,7 +121,145 @@ public class ReserveDao {
     	request.setAttribute("ymd", ymd);
     	request.setAttribute("rdto", rdto);
     }
+    
+    public void reserve_ok(HttpServletRequest request,HttpSession session,
+    		HttpServletResponse response) throws Exception
+    {
+    	// request
+    	String inday=request.getParameter("inday"); // 2022-07-05
+    	int suk=Integer.parseInt(request.getParameter("suk"));
+    	String bang_id=request.getParameter("bang_id");
+    	String total=request.getParameter("total");
+    	String inwon=request.getParameter("inwon");
+    	String charcoal=request.getParameter("charcoal");
+    	String bbq=request.getParameter("bbq");
+    	String userid=session.getAttribute("userid").toString();
+    	
+    	// inday를 이용해서 outday을 구한다..
+    	// LocalDate 변수=LocalDate.now()  // 현재시간
+    	// LocalDate.of(int, int, int); // 입력되는 년,월,일
+    	// inday를 정수로 변환시킨다..
+    	String[] imsi=inday.split("-");
+    	int y=Integer.parseInt(imsi[0]);
+    	int m=Integer.parseInt(imsi[1]);
+    	int d=Integer.parseInt(imsi[2]);
+    	// 입실일 날짜 객체 만들기
+    	LocalDate dday=LocalDate.of(y, m, d);
+    	LocalDate outday=dday.plusDays(suk);
+    	
+    	// 쿼리 생성
+    	String sql="insert into reserve(inday,outday,userid,bang_id,inwon,charcoal,bbq,total,writeday) ";
+    	sql=sql+" values(?,?,?,?,?,?,?,?,now())";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, inday);
+    	pstmt.setString(2, outday.toString());
+    	pstmt.setString(3, userid);
+    	pstmt.setString(4, bang_id);
+    	pstmt.setString(5, inwon);
+    	pstmt.setString(6, charcoal);
+    	pstmt.setString(7, bbq);
+    	pstmt.setString(8, total);
+    	
+    	// 쿼리 실행
+    	pstmt.executeUpdate();
+    	
+    	// close
+    	pstmt.close();
+    	conn.close();
+    	
+    	// 이동 => 예약 현황
+    	response.sendRedirect("reserve_view.jsp");
+    }
+    
+    public void reserve_view(HttpSession session,HttpServletRequest request) throws Exception
+    {
+    	// 쿼리 생성
+    	String sql="select r2.*,r1.bang from room as r1,reserve as r2 where r2.userid=? ";
+    	sql=sql+" and r1.id=r2.bang_id order by id desc limit 1";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, session.getAttribute("userid").toString());
+    	
+    	// 쿼리 실행
+    	ResultSet rs=pstmt.executeQuery();
+    	rs.next();
+    	
+    	// rs => dto
+    	ReserveDto rdto=new ReserveDto();
+    	rdto.setId(rs.getInt("id"));
+    	rdto.setInday(rs.getString("inday"));
+    	rdto.setOutday(rs.getString("outday"));
+    	rdto.setBang_id(rs.getInt("bang_id"));
+    	rdto.setCharcoal(rs.getInt("charcoal"));
+    	rdto.setBbq(rs.getInt("bbq"));
+    	rdto.setTotal(rs.getInt("total"));
+    	rdto.setWriteday(rs.getString("writeday"));
+    	// bang의 값을 전달하는 방법
+    	// 1. ReserveDto에 필드를 추가
+    	// 2. bang을 request영역에
+    	request.setAttribute("rdto", rdto);
+    	request.setAttribute("bang", rs.getString("bang"));
+    }
+    
+    // 방이 비었느냐?
+    public void getEmpty(String dday, String bang_id, HttpServletRequest request) throws Exception
+    {
+    	// 년월일과 bang의 id를 이용하여 예약 가능여부를 확인
+    	String sql="select count(*) as cnt from reserve ";
+    	sql=sql+" where inday<=? and ?<outday and bang_id=?";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, dday);
+    	pstmt.setString(2, dday);
+    	pstmt.setString(3, bang_id);
+    	
+    	// 쿼리 실행
+    	ResultSet rs=pstmt.executeQuery();
+    	rs.next();
+    	
+    	request.setAttribute("cnt", rs.getString("cnt"));  // 0 or 1
+    }
+    
+    public void getcheck(String y, String m, String d, HttpServletRequest request)
+    {
+    	int yy=Integer.parseInt(y);
+    	int mm=Integer.parseInt(m);
+    	int dd=Integer.parseInt(d);
+    	
+    	LocalDate today=LocalDate.now(); //오늘날짜
+    	LocalDate dday=LocalDate.of(yy, mm, dd);
+    	
+    	if(today.isBefore(dday)) // 
+    	{
+    		request.setAttribute("tt", "1");
+    	}
+    	else if(today.isEqual(dday)) // 같은날
+    	     {
+    	 	    request.setAttribute("tt", "1");
+    	     }
+    	     else
+    	     {
+    	      	request.setAttribute("tt", "0");
+    	     }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

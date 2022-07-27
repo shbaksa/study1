@@ -6,5 +6,5 @@
 
 <%
 	TourDao tdao = new TourDao();
-	tdao.delete(request, response);
+	//tdao.delete(request, response);
 %>

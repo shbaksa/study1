@@ -41,6 +41,7 @@
 					<ul class="sub">
 						<li><a href="../reserve/reserve.jsp">예약안내</a></li>
 						<li>예약하기</li>
+						<li><a href="../reserve/reserve_view.jsp">예약현황</a></li>
 					</ul>
 				</li>
 				<li id="main" onmouseover="view(3)" onmouseout="hide(3)">커뮤니티

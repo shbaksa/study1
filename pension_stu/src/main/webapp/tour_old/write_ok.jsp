@@ -5,5 +5,5 @@
 
 <%
 	TourDao tdao = new TourDao();
-	tdao.wrtie_ok(request, response, session);
+	//tdao.wrtie_ok(request, response, session);
 %>

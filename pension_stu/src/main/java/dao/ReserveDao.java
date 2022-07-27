@@ -5,7 +5,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dto.ReserveDto;
 import dto.RoomDto;
 import dto.TourDto;
 // 예약관련
@@ -32,10 +35,12 @@ public class ReserveDao {
 			LocalDate today = LocalDate.now(); // 현재 날짜 정보를 가져온다			
 			y = today.getYear(); // 년도
 			m = today.getMonthValue(); // 월
+			
 		}
 		else {
 			y = Integer.parseInt(request.getParameter("y"));
 			m = Integer.parseInt(request.getParameter("m"));
+			
 		}
 		
 		// 해당월의 1일에 대한 날짜객체를 생성
@@ -60,6 +65,7 @@ public class ReserveDao {
 		request.setAttribute("ju", ju);
 		request.setAttribute("y", y);
 		request.setAttribute("m", m);
+		
 
 		
 	}
@@ -126,8 +132,131 @@ public class ReserveDao {
 		
 	}
 	
-
+	public void reserve_ok(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception{
+		
+		// request
+		
+		String inday = request.getParameter("ymd"); // 2022-07-05
+		int suk = Integer.parseInt(request.getParameter("suk"));
+		String bang_id = request.getParameter("bang_id");
+		String total = request.getParameter("total");
+		String inwon = request.getParameter("inwon");
+		String charcoal = request.getParameter("charcoal");
+		String bbq = request.getParameter("bbq");
+		String userid = session.getAttribute("userid").toString();
+		
+		
+		// inday를 이용해서 outday을 구한다
+		//LocalDate 변수 = LocalDate.now() // 현재시간
+		//				 LocalDate.of(y, m, d) // 입력되는 년, 월, 일
+		
+		String[] imsi = inday.split("-");
+		int y = Integer.parseInt(imsi[0]);
+		int m = Integer.parseInt(imsi[1]);
+		int d = Integer.parseInt(imsi[2]);
+		
+		// 입실일 날짜 객체 만들기
+		
+		LocalDate dday = LocalDate.of(y, m, d);
+		LocalDate outday = dday.plusDays(suk);
+		
+		sql = "insert into reserve(inday,outday,userid,bang_id,inwon,charcoal,bbq,total,writeday) ";
+		sql = sql + " values(?,?,?,?,?,?,?,?,now())";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, inday);
+		pstmt.setString(2, outday.toString());
+		pstmt.setString(3, userid);
+		pstmt.setString(4, bang_id);
+		pstmt.setString(5, inwon);
+		pstmt.setString(6, charcoal);
+		pstmt.setString(7, bbq);
+		pstmt.setString(8, total);
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+		// 이동 => 예약 현황
+		response.sendRedirect("../reserve/reserve_view.jsp");
+		
+	}
 	
+	public void reserve_view(HttpServletRequest request, HttpSession session) throws Exception{
+		
+		// sql = "select reserve.*, bang from reserve,room where reserve.userid=? && room.id=reserve.bang_id order by id desc limit 1";
+		
+		sql = "select r2.*, bang from reserve as r2, room as r1 where r2.userid=? && r1.id=r2.bang_id order by id desc limit 1";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, session.getAttribute("userid").toString());
+		rs = pstmt.executeQuery();
+		rs.next();
+		
+		ReserveDto rdto = new ReserveDto();
+		rdto.setBang_id(rs.getInt("bang_id"));
+		rdto.setBbq(rs.getInt("bbq"));
+		rdto.setCharcoal(rs.getInt("charcoal"));
+		rdto.setId(rs.getInt("id"));
+		rdto.setInday(rs.getString("inday"));
+		rdto.setInwon(rs.getInt("inwon"));
+		rdto.setOutday(rs.getString("outday"));
+		rdto.setTotal(rs.getInt("total"));
+		//rdto.setUserid(rs.getString("userid"));
+		rdto.setWriteday(rs.getString("writeday"));
+		
+		
+		// bang의 값을 전달하는 방법
+		// 1. ReserveDto에 필드를 추가
+		// 2. bang을 request영영에 추가
+		
+		// rdto.setBang(rs.getString("bang"));
+		
+		request.setAttribute("bang", rs.getString("bang"));		
+		request.setAttribute("rdto", rdto);
+		
+	}
+	
+	//방이 비었느냐?
+	public void getEmpty(String dday, String bang_id, HttpServletRequest request) throws Exception {
+		
+		// 년월일과 bang의 id를 이용하여 예약 가능여부를 확인
+		
+		sql = "select count(*) as cnt from reserve where inday <= ? && ? < outday && bang_id=? ";
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, dday);
+		pstmt.setString(2, dday);
+		pstmt.setString(3, bang_id);
+		
+		rs = pstmt.executeQuery();
+		rs.next();
+		
+		
+		request.setAttribute("cnt", rs.getString("cnt")); // 0 or 1
+	}
+	
+	public void getCheck(String y, String m, String d, HttpServletRequest request) {
+
+		int yy = Integer.parseInt(y);
+		int mm = Integer.parseInt(m);
+		int dd = Integer.parseInt(d);
+		
+		LocalDate today = LocalDate.now(); // 오늘날짜
+		
+		LocalDate dday = LocalDate.of(yy, mm, dd); // td날짜
+		
+		if(today.isBefore(dday))
+			request.setAttribute("tt", "1");
+		else if(today.isEqual(dday))
+			request.setAttribute("tt", "1");
+		else
+			request.setAttribute("tt", 0);
+		
+		
+	}
 }
 
 

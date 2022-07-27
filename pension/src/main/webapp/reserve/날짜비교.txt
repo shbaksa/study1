@@ -1,0 +1,5 @@
+<fmt:formatDate var="tday" value="<%=new java.util.Date()%>"  pattern="yyyyMMdd"/>
+ <fmt:formatDate var="calday" value="<%=new java.util.Date(y-1900,m-1,d) %>" pattern="yyyyMMdd"/>
+ <c:if test="${tday < calday}">
+
+</c:if>

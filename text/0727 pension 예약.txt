@@ -1,0 +1,12 @@
+예약하기 => reserve테이블
+
+id int
+입실일 inday date
+퇴실일 outday date
+아이디 userid char(10)
+어떤방 bang_id int
+인원 inwon int 
+숯 charcoal int
+bbq bbq int
+total금액 total int
+writeday writeday date
