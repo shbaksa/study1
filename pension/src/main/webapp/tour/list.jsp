@@ -16,7 +16,7 @@
   }
 </style>
   <div id="section">
-     <table width="600" align="center">
+     <table width="800" align="center">
       <caption> <h2> 여 행 후 기 </h2> </caption>
       <tr>
         <td> 작성자 </td>

@@ -130,7 +130,7 @@ rdao.getRoom(request);
 										</c:if>
 
 										<c:if test="${cnt==1}">
-											<span style="color: red;">${rdto.bang}</span>
+											<span style="color: red;text-decoration:line-through;">${rdto.bang}</span>
 											<br>
 										</c:if>
 

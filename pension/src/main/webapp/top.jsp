@@ -48,19 +48,23 @@
     list-style-type:none;
     display:inline-block;
     width:140px;
+    font-size:15px;
   }
   #second > #right > ul > li:last-child {  /* 마지막 li태그의 길이는 크게 */
-    width:230px;
+    width:250px;
   }
   #second #right #main {  /* 주메뉴 */
      position:relative;
+    
   }
   #second #right #main .sub {  /* 부메뉴 ul태그 */
      position:absolute;   /* 부메뉴의 기준점이 주메뉴로 된다 */
-     padding-left:0px;
      visibility:hidden;
      background:white;
-     padding-top:5px;
+     padding:8px;
+     border:1px solid #dddddd;
+     left:-10px;
+     padding-bottom:3px;
   }
   
   #second #right #main .sub li {
@@ -141,7 +145,7 @@
         <li id="main" onmouseover="view(2)" onmouseout="hide(2)"> 예약관련 
            <ul class="sub">
              <li> 예약안내 </li>
-             <li> 예약하기 </li>
+             <li> <a href="../reserve/reserve.jsp"> 예약하기 </a> </li>
            </ul>
         </li>
         <li id="main" onmouseover="view(3)" onmouseout="hide(3)"> 커뮤니티 
@@ -163,6 +167,7 @@
           ${name}님 
           <a href="../member/logout.jsp"> 로그아웃 </a>
           <a href="../member/member_info.jsp"> 회원정보 </a> 
+          <a href="../reserve/reserve_view.jsp?ck=1"> 예약현황 </a>
         </c:if>
         </li>
       </ul>

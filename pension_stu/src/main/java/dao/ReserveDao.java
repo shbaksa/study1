@@ -185,14 +185,29 @@ public class ReserveDao {
 	
 	public void reserve_view(HttpServletRequest request, HttpSession session) throws Exception{
 		
-		// sql = "select reserve.*, bang from reserve,room where reserve.userid=? && room.id=reserve.bang_id order by id desc limit 1";
+		// sql = "select reserve.*, bang from reserve,room where reserve.id=? reserve.userid=? && room.id=reserve.bang_id order by id desc limit 1";
 		
-		sql = "select r2.*, bang from reserve as r2, room as r1 where r2.userid=? && r1.id=r2.bang_id order by id desc limit 1";
 		
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, session.getAttribute("userid").toString());
+		String chuga=""; // ↓ 예약하기에서 reserve_view로 들어올때  //  ↓ 예약하기에서 예약후 예약취소후 들어올때
+    	if(request.getParameter("ck")==null || !request.getParameter("ck").equals("1"))
+    		chuga=" limit 1";
+   
+    	// 쿼리 생성
+    	String sql="select r2.*,r1.bang from room as r1,reserve as r2 where r2.userid=? ";
+    	sql=sql+" and r1.id=r2.bang_id order by id desc "+chuga;
+    	//	System.out.println(sql);
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, session.getAttribute("userid").toString());
+		
+		
 		rs = pstmt.executeQuery();
-		rs.next();
+		
+		
+		ArrayList<ReserveDto> rlist = new ArrayList<ReserveDto>();
+		
+		while(rs.next()) {
 		
 		ReserveDto rdto = new ReserveDto();
 		rdto.setBang_id(rs.getInt("bang_id"));
@@ -205,17 +220,50 @@ public class ReserveDao {
 		rdto.setTotal(rs.getInt("total"));
 		//rdto.setUserid(rs.getString("userid"));
 		rdto.setWriteday(rs.getString("writeday"));
-		
-		
+		rdto.setBang(rs.getString("bang"));
+		rdto.setState(rs.getInt("state"));
+		rlist.add(rdto);
+		}
 		// bang의 값을 전달하는 방법
 		// 1. ReserveDto에 필드를 추가
 		// 2. bang을 request영영에 추가
 		
 		// rdto.setBang(rs.getString("bang"));
 		
-		request.setAttribute("bang", rs.getString("bang"));		
-		request.setAttribute("rdto", rdto);
 		
+		request.setAttribute("rlist", rlist);
+		request.setAttribute("ck", request.getParameter("ck"));
+		
+	}
+	
+	public void allView(HttpServletRequest request, HttpSession session) throws Exception{
+		
+		sql = "select r2.*, bang from reserve as r2 , room as r1 where r2.userid=? && r1.id=r2.bang_id order by id desc";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, session.getAttribute("userid").toString());
+		rs = pstmt.executeQuery();
+		
+		ArrayList<ReserveDto> rlist = new ArrayList<ReserveDto>();
+		
+		while(rs.next()) {
+			
+			ReserveDto rdto = new ReserveDto();
+			rdto.setBang_id(rs.getInt("bang_id"));
+			rdto.setBbq(rs.getInt("bbq"));
+			rdto.setCharcoal(rs.getInt("charcoal"));
+			rdto.setId(rs.getInt("id"));
+			rdto.setInday(rs.getString("inday"));
+			rdto.setInwon(rs.getInt("inwon"));
+			rdto.setOutday(rs.getString("outday"));
+			rdto.setTotal(rs.getInt("total"));
+			rdto.setWriteday(rs.getString("writeday"));
+			rdto.setBang(rs.getString("bang"));
+			rlist.add(rdto);
+		}
+		
+		
+		request.setAttribute("rlist", rlist);
 	}
 	
 	//방이 비었느냐?
@@ -254,9 +302,73 @@ public class ReserveDao {
 			request.setAttribute("tt", "1");
 		else
 			request.setAttribute("tt", 0);
+
+	}
+	
+	// 몇박이 가능한지를 체크하기
+	public void getSuk(HttpServletRequest request) throws Exception{
 		
+		// 년 월 일을 어디에 사용할까? 
+		String ymd = request.getAttribute("ymd").toString();
+		
+		RoomDto rdto=(RoomDto)request.getAttribute("rdto");
+		
+		//System.out.println(ymd);
+		//System.out.println(rdto.getId());
+		
+		// ymd를 LocalDate로 변경
+		String[] temp = ymd.split("-");
+		int y = Integer.parseInt(temp[0]);
+		int m = Integer.parseInt(temp[1]);
+		int d = Integer.parseInt(temp[2]);
+		
+		LocalDate dday = LocalDate.of(y, m, d); // 내가 입실할 날짜의 객체가 생성
+									// 2022-07-28
+		int chk=0;
+		
+		for(int i=1;i<=5;i++) {
+			
+			chk++;
+			LocalDate xday = dday.plusDays(i); // 2022-07-29
+			
+			sql = "select * from reserve where inday<=? && ?<outday && bang_id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, xday.toString());
+			pstmt.setString(2, xday.toString());
+			pstmt.setInt(3, rdto.getId());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				break;			
+			//System.out.println(pstmt.toString());
+		
+		}
+		
+		request.setAttribute("chk", chk);		
+	}
+	
+	public void state_change(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		String ck = request.getParameter("ck");
+		id = request.getParameter("id");
+		String state = request.getParameter("state");
+		
+		sql = "update reserve set state=? where id=?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, state);
+		pstmt.setString(2, id);
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+		
+		response.sendRedirect("../reserve/reserve_view.jsp?ck="+request.getParameter("ck"));
 		
 	}
+	
 }
 
 

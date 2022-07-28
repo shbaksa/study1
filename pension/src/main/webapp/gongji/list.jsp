@@ -16,7 +16,7 @@
   }
 </style>
   <div id="section">
-    <table width="500" align="center">
+    <table width="800" align="center">
       <caption> <h2> 공 지 사 항 </h2> </caption>
       <tr>
         <td> 제 목 </td>

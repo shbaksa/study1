@@ -14,21 +14,27 @@
   #section {
     width:1100px;
     margin:auto;
+    margin-bottom:50px;
   }
   #section tr {
     height:50px;
   }
   
 </style> 
-  <div id="section">
+  <%
+      rdao.getprev(request);
+  %>
+  <div id="section">  
      <table width="1000" align="center" border="1">
-       <caption>
+       <caption> <h2>
+       <c:if test="${prev==1 }">
         <c:if test="${m==1}">
           <a href="reserve.jsp?y=${y-1}&m=12"> 이전 </a>
         </c:if>
         <c:if test="${m!=1}">
           <a href="reserve.jsp?y=${y}&m=${m-1}"> 이전 </a>
         </c:if>
+       </c:if>
           ${y}년 ${m}월  
         <c:if test="${m==12}">
           <a href="reserve.jsp?y=${y+1}&m=1"> 다음 </a>
@@ -36,7 +42,7 @@
         <c:if test="${m!=12}">
           <a href="reserve.jsp?y=${y}&m=${m+1}"> 다음 </a>
         </c:if>  
-          
+         </h2>
        </caption>
        <tr>
          <td width="142"> 일 </td>
@@ -48,7 +54,7 @@
          <td width="142"> 토 </td>
        </tr>
      <c:set var="day" value="1"/>
-     <c:forEach  var="i" begin="1" end="6"> <!-- 행 -->
+     <c:forEach  var="i" begin="1" end="${ju}"> <!-- 행 -->
        <tr>
          <c:forEach var="j" begin="0" end="6">  <!-- 열 -->
           <c:if test="${(j < yoil && i==1) || (chong < day) }">

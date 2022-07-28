@@ -9,6 +9,17 @@
 ReserveDao rdao = new ReserveDao();
 rdao.reserve_next(request);
 %>
+<%
+	//몇박을 알려주는 getSuk()메소드를 호출
+	//년,원,일, 방id
+	//request영역		// YYYY-MM-DD 
+	
+	//request.getAttribute("ymd").toString();
+	//request.getAttribute("rdto");
+	
+	rdao.getSuk(request);
+
+%>
 <!-- reserve/reserve_next.jsp -->
 <c:import url="../top.jsp" />
 
@@ -62,6 +73,7 @@ function total_price(){ // 총가격 구하는 함수
 		<input type="hidden" name="ymd" value="${ymd}"> <input
 			type="hidden" name="bang_id" value="${rdto.id}"> <input
 			type="hidden" name="total" value="${rdto.price}">
+			
 		<table width="600" align="center">
 			<caption>
 				<h2>${rdto.bang}예약정보</h2>
@@ -72,11 +84,13 @@ function total_price(){ // 총가격 구하는 함수
 				<td>${ymd}</td>
 				<td>숙박일수</td>
 				<td><select name="suk" onchange="total_price()">
-						<option value="1">1박</option>
-						<option value="2">2박</option>
-						<option value="3">3박</option>
-						<option value="4">4박</option>
-						<option value="5">5박</option>
+					
+					<c:forEach var="i" begin="1" end="${chk}">
+					
+						<option value="${i}">${i}박</option>
+									
+					</c:forEach>	
+						
 				</select></td>
 			</tr>
 

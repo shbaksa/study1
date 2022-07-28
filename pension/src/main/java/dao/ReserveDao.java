@@ -175,33 +175,46 @@ public class ReserveDao {
     
     public void reserve_view(HttpSession session,HttpServletRequest request) throws Exception
     {
+    	String chuga="";
+    	if(request.getParameter("ck")==null) // 예약하기에서 reserve_view로 들어올때
+    		chuga=" limit 1";
+    	else if(!request.getParameter("ck").equals("1"))  // 예약하기에서 예약후 예약취소후 들어올때 
+    		chuga=" limit 1";
+   
     	// 쿼리 생성
     	String sql="select r2.*,r1.bang from room as r1,reserve as r2 where r2.userid=? ";
-    	sql=sql+" and r1.id=r2.bang_id order by id desc limit 1";
-    	
+    	sql=sql+" and r1.id=r2.bang_id order by id desc "+chuga;
+    	System.out.println(sql);
     	// 심부름꾼 생성
     	pstmt=conn.prepareStatement(sql);
     	pstmt.setString(1, session.getAttribute("userid").toString());
     	
     	// 쿼리 실행
     	ResultSet rs=pstmt.executeQuery();
-    	rs.next();
+         	
+    	// ArrayList만들기
+    	ArrayList<ReserveDto> rlist=new ArrayList<ReserveDto>();
     	
     	// rs => dto
-    	ReserveDto rdto=new ReserveDto();
-    	rdto.setId(rs.getInt("id"));
-    	rdto.setInday(rs.getString("inday"));
-    	rdto.setOutday(rs.getString("outday"));
-    	rdto.setBang_id(rs.getInt("bang_id"));
-    	rdto.setCharcoal(rs.getInt("charcoal"));
-    	rdto.setBbq(rs.getInt("bbq"));
-    	rdto.setTotal(rs.getInt("total"));
-    	rdto.setWriteday(rs.getString("writeday"));
-    	// bang의 값을 전달하는 방법
-    	// 1. ReserveDto에 필드를 추가
-    	// 2. bang을 request영역에
-    	request.setAttribute("rdto", rdto);
-    	request.setAttribute("bang", rs.getString("bang"));
+    	while(rs.next())
+    	{
+    		ReserveDto rdto=new ReserveDto();
+        	rdto.setId(rs.getInt("id"));
+        	rdto.setInday(rs.getString("inday"));
+        	rdto.setOutday(rs.getString("outday"));
+        	rdto.setBang_id(rs.getInt("bang_id"));
+        	rdto.setCharcoal(rs.getInt("charcoal"));
+        	rdto.setBbq(rs.getInt("bbq"));
+        	rdto.setTotal(rs.getInt("total"));
+        	rdto.setWriteday(rs.getString("writeday"));
+        	rdto.setBang(rs.getString("bang"));
+        	rdto.setState(rs.getInt("state"));
+        	rlist.add(rdto);
+    	}
+    	 
+    
+    	request.setAttribute("rlist", rlist);
+        request.setAttribute("ck", request.getParameter("ck"));
     }
     
     // 방이 비었느냐?
@@ -245,6 +258,96 @@ public class ReserveDao {
     	     {
     	      	request.setAttribute("tt", "0");
     	     }
+    }
+    
+    // 몇박이 가능한지를 체크하기
+    public void getSuk(HttpServletRequest request) throws Exception
+    {
+    	// request
+    	String ymd=request.getAttribute("ymd").toString();
+    	RoomDto rdto=(RoomDto)request.getAttribute("rdto");
+    	//System.out.println(ymd);
+    	//System.out.println(rdto.getId());
+    	
+    	// ymd를 LocalDate로 변경
+    	String[] imsi=ymd.split("-");
+    	int y=Integer.parseInt(imsi[0]);
+    	int m=Integer.parseInt(imsi[1]);
+    	int d=Integer.parseInt(imsi[2]);   // 2022-07-28
+    	LocalDate dday=LocalDate.of(y, m, d); // 내가 입실할 날짜의 객체가 생성
+    	int chk=0;
+    	for(int i=1;i<=5;i++)
+    	{	
+    	   chk++;
+    	   
+    	   LocalDate xday=dday.plusDays(i);	// 2022-07-29
+    	   String sql="select * from reserve where inday<=? and ?<outday and bang_id=?";
+    	   
+    	   pstmt=conn.prepareStatement(sql);
+    	   pstmt.setString(1, xday.toString());
+    	   pstmt.setString(2, xday.toString());
+    	   pstmt.setInt(3, rdto.getId());
+    	   
+    	   ResultSet rs=pstmt.executeQuery();
+    	   
+    	   if(rs.next())
+    		   break;
+    	}
+    	
+    	request.setAttribute("chk", chk);
+    	
+    }
+    
+    public void getprev( HttpServletRequest request)
+    {
+    	LocalDate today=LocalDate.now(); //오늘날짜
+    	int y,m;
+    	if(request.getParameter("y")==null) // reserve.jsp를 제일 처음 부를때는 null값임
+    		y=today.getYear();
+    	else
+    	    y=Integer.parseInt(request.getParameter("y"));
+    	
+    	if(request.getParameter("m")==null)
+    		m=today.getMonthValue();
+    	else
+    	    m=Integer.parseInt(request.getParameter("m"));
+    	
+    	LocalDate xday=LocalDate.of(today.getYear(), today.getMonthValue(), 1); // 오늘기준 1일의날짜
+    	LocalDate dday=LocalDate.of(y, m, 1); // 현재 달력기준 1일의 날짜
+    	
+    	if(xday.isBefore(dday))  // 오늘기준 보다 달력의 기준이 이전일 경우(같을경우도 포함)
+    	{
+    		request.setAttribute("prev", "1");
+    	}
+    	else 
+    	{
+    	      	request.setAttribute("prev", "0");
+    	}
+    }
+    
+    
+    public void state_change(HttpServletRequest request,HttpServletResponse response) throws Exception
+    {
+    	String id=request.getParameter("id");
+    	String state=request.getParameter("state");
+    	
+    	// 쿼리 생성
+    	String sql="update reserve set state=? where id=?";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, state);
+    	pstmt.setString(2, id);
+    	
+    	// 쿼리 실행
+    	pstmt.executeUpdate();
+    	
+    	// close
+    	pstmt.close();
+    	conn.close();
+    	
+    	// 이동
+    	response.sendRedirect("reserve_view.jsp?ck="+request.getParameter("ck"));
     }
 }
 

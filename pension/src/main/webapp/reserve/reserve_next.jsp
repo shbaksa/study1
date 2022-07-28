@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="dao.ReserveDao" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
    ReserveDao rdao=new ReserveDao();
    rdao.reserve_next(request);
 %>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
+
+<%
+  // 몇박을 알려주는 getSuk()메소드를 호출
+  // 년,월,일, 방id
+  // request영역
+   rdao.getSuk(request);
+%>   
  <c:import url="../top.jsp"/>
   <style>
     #section {
@@ -61,12 +68,10 @@
          <td> ${ymd} </td>
          <td> 숙박일수 </td>
          <td>
-            <select name="suk" onchange="total_price()"> 
-              <option value="1"> 1박 </option>
-              <option value="2"> 2박 </option>
-              <option value="3"> 3박 </option>
-              <option value="4"> 4박 </option>
-              <option value="5"> 5박 </option>
+            <select name="suk" onchange="total_price()">
+             <c:forEach begin="1" end="${chk}" var="i"> 
+              <option value="${i}"> ${i}박 </option>
+             </c:forEach>
             </select> 
          </td>
        </tr>

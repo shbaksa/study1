@@ -1,9 +1,23 @@
 package dto;
 
 public class ReserveDto {
-    private int id,bang_id,inwon,charcoal,bbq,total;
-    private String inday,outday,userid,writeday;
+    private int id,bang_id,inwon,charcoal,bbq,total,state;
+    private String inday,outday,userid,writeday,bang;
     
+    
+    
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}
+	public String getBang() {
+		return bang;
+	}
+	public void setBang(String bang) {
+		this.bang = bang;
+	}
 	public int getId() {
 		return id;
 	}

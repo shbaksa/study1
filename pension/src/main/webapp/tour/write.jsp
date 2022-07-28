@@ -16,7 +16,7 @@
   {
 	  size++;
 	  var outer=document.getElementById("outer");
-	  var inner="<p class='fname'> <input type='file' name='fname"+size+"'> </p>";
+	  var inner="<p class='fname'> <span class='img'></span> <input onchange='setview("+(size-1)+")'  type='file' name='fname"+size+"'> </p>";
 	  outer.innerHTML=outer.innerHTML+inner;
 	  //alert(inner);
   }
@@ -27,6 +27,27 @@
 	    document.getElementsByClassName("fname")[size-1].remove(); 
 	    size--;
 	  }
+  }
+  function setview(n)
+  {
+	  document.getElementsByClassName("img")[n].innerHTML="";
+	  for (var image of event.target.files)
+	  {
+		  var reader = new FileReader(); 
+		  reader.onload=function()
+		  {
+			  var img = document.createElement("img"); 
+
+	            img.setAttribute("src", event.target.result); 
+	            img.setAttribute("width","40");
+	            img.setAttribute("valign","middle");
+	            
+	            document.getElementsByClassName("img")[n].appendChild(img);  //새로 선택한 이미지 div에 출력
+
+		  };
+		   
+	 	   reader.readAsDataURL(image); 
+	  }	  
   }
  </script>
   <div id="section">
@@ -46,7 +67,7 @@
         <td id="outer"> 
            <input type="button" onclick="add_file()" value="추가">
            <input type="button" onclick="del_file()" value="삭제">
-           <p class="fname"> <input type="file" name="fname1"> </p> 
+           <p class="fname"><span class="img"></span> <input type="file" name="fname1" onchange="setview(0)" > </p> 
         </td>
       </tr>
       <tr>
