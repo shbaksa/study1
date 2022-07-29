@@ -6,60 +6,10 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
-			<item value="C:\java\home_0624"/>
+			<item value="C:\java\pension_me"/>
+			<item value="C:\java\pension_m"/>
 			<item value="C:\java\pension"/>
 			<item value="C:\java\pension_stu"/>
-			<item value="C:\java\m_0527"/>
-			<item value="C:\java\mw_0527_css_frist"/>
-			<item value="C:\java\mw_0704"/>
-			<item value="C:\java\mw_0701"/>
-			<item value="C:\java\mw_0630"/>
-			<item value="C:\java\mw_0629"/>
-			<item value="C:\java\mw_0627"/>
-			<item value="C:\java\mw_0624"/>
-			<item value="C:\java\mw_0620"/>
-			<item value="C:\java\mw_0617"/>
-			<item value="C:\java\mw_0616"/>
-			<item value="C:\java\mw_0614"/>
-			<item value="C:\java\mw_0610"/>
-			<item value="C:\java\mw_0609"/>
-			<item value="C:\java\mw_0608"/>
-			<item value="C:\java\mw_0607"/>
-			<item value="C:\java\mw_0603"/>
-			<item value="C:\java\mw_0602"/>
-			<item value="C:\java\mw_0531"/>
-			<item value="C:\java\mw_0530"/>
-			<item value="C:\java\mw_0527"/>
-			<item value="C:\java\java_0518"/>
-			<item value="C:\java\mememememe"/>
-			<item value="C:\java\pension_m"/>
-			<item value="C:\java\mw_0615"/>
-			<item value="C:\java\mw_0628"/>
-			<item value="C:\java\mw_0705"/>
-			<item value="C:\java\mw_0613"/>
-			<item value="C:\java\web_0711"/>
-			<item value="C:\java\web_0708"/>
-			<item value="C:\java\web_0623"/>
-			<item value="C:\java\mw_0623"/>
-			<item value="C:\java\mw_0622"/>
-			<item value="C:\java\mw_0621"/>
-			<item value="C:\java\mw_0706"/>
-			<item value="C:\java\m_0706"/>
-			<item value="C:\java\mw_0707"/>
-			<item value="C:\java\m_0707"/>
 		</list>
-	</section>
-	<section name="SaveAsDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="706"/>
-		<item key="DIALOG_Y_ORIGIN" value="142"/>
-		<item key="DIALOG_WIDTH" value="525"/>
-		<item key="DIALOG_HEIGHT" value="580"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-	</section>
-	<section name="CleanDialogSettings">
-		<item key="TOGGLE_SELECTED" value="true"/>
-		<item key="DIALOG_WIDTH" value="500"/>
-		<item key="DIALOG_HEIGHT" value="389"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>
