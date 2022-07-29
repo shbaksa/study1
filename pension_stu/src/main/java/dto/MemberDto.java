@@ -4,7 +4,7 @@ package dto;
 public class MemberDto {
 
 	private int id, state;
-	private String userid, name, email, phone, pwd, writday;
+	private String userid, name, email, phone, pwd, writeday;
 
 	public int getId() {
 		return id;
@@ -62,11 +62,11 @@ public class MemberDto {
 		this.pwd = pwd;
 	}
 
-	public String getWritday() {
-		return writday;
+	public String getWriteday() {
+		return writeday;
 	}
 
-	public void setWritday(String writday) {
-		this.writday = writday;
+	public void setWriteday(String writeday) {
+		this.writeday = writeday;
 	}
 }

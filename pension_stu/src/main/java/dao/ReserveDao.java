@@ -94,6 +94,9 @@ public class ReserveDao {
 			rlist.add(rdto);
 		}
 		
+		
+		
+		
 		request.setAttribute("rlist", rlist);
 	}
 	
@@ -126,6 +129,8 @@ public class ReserveDao {
 		rdto.setMin(rs.getInt("min"));
 		rdto.setPrice(rs.getInt("price"));
 		rdto.setContent(rs.getString("content"));
+		
+		
 
 		request.setAttribute("ymd", ymd);
 		request.setAttribute("rdto", rdto);
@@ -231,6 +236,8 @@ public class ReserveDao {
 		// rdto.setBang(rs.getString("bang"));
 		
 		
+		
+		
 		request.setAttribute("rlist", rlist);
 		request.setAttribute("ck", request.getParameter("ck"));
 		
@@ -261,6 +268,7 @@ public class ReserveDao {
 			rdto.setBang(rs.getString("bang"));
 			rlist.add(rdto);
 		}
+		
 		
 		
 		request.setAttribute("rlist", rlist);
@@ -344,6 +352,7 @@ public class ReserveDao {
 		
 		}
 		
+	
 		request.setAttribute("chk", chk);		
 	}
 	

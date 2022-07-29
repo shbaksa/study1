@@ -58,10 +58,60 @@
 					</c:if> <!-- 로그인을 한 경우 --> <c:if test="${userid!=null}">
 				${name}님&nbsp;
 				<a href="../member/logout.jsp">로그아웃</a>&nbsp;
-				<a href="../member/info.jsp">회원정보</a>&nbsp;
-				
+				<c:if test="${userid != 'admin'}">
+				<a href="../member/info.jsp">회원정보</a>&nbsp;		
+				<a href="../reserve/reserve_view.jsp?ck=1">예약현황</a>						
+				</c:if>
+				<c:if test="${userid == 'admin'}">
+				<div id="admin" onmouseover="admin_view()" onmouseout="admin_hide()"> 관리자 메뉴
+					<ul id="sub">
+						<li><a href="../admin/room_view.jsp">객실관리</a></li>
+						<li><a href="../admin/reserve_check.jsp">예약관리</a></li>
+						<li><a href="../admin/member_check.jsp">회원관리</a></li>
+					</ul>
+				</div>
+				</c:if>			
 				</c:if>
 				</li>
 			</ul>
 		</div>
+		<script>
+			/* function admin_view(){				
+				document.querySelector("#second #admin #sub").style.visibility="visible";
+				// css의 선택자를 사용할 수 있다. querySelectorAll()
+			}
+			function admin_hide(){
+				document.querySelector("#second #admin #sub").style.visibility="hidden";
+			} */
+			
+			$(function(){
+				
+				$("#admin").mouseover(function(){
+					$("#sub").css("visibility","visible");
+				});
+				$("#admin").mouseout(function(){
+					$("#sub").css("visibility","hidden");
+				});
+				
+			});
+		</script>
+		<style>
+		#second #admin{
+			display:inline-block;
+			position: relative;
+		}
+		#second #admin #sub{
+			position: absolute;
+			padding-left:0px;
+			background:#fff;
+			padding:8px;
+			visibility: hidden;
+		}
+		#second #admin #sub li{
+			list-style-type: none;
+			height:25px;
+		}
+		
+		</style>
+		
 	</div>

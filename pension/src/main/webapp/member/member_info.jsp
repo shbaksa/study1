@@ -57,6 +57,7 @@
       <td colspan="2">
         <span class="btn" onclick="location='member_update.jsp'"> 정보 수정 </span>
         <span class="btn" onclick="location='pwd_change.jsp'"> 비밀번호 변경 </span>
+        <span class="btn" onclick="location='member_out.jsp'"> 회원 탈퇴 </span>
       </td>
      </tr>
     </table>

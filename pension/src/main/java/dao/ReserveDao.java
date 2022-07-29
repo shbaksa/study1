@@ -198,6 +198,15 @@ public class ReserveDao {
     	// rs => dto
     	while(rs.next())
     	{
+    		String[] imsi=rs.getString("outday").split("-");
+        	int y=Integer.parseInt(imsi[0]);
+        	int m=Integer.parseInt(imsi[1]);
+        	int d=Integer.parseInt(imsi[2]);
+        	
+        	LocalDate today=LocalDate.now();
+        	LocalDate dday=LocalDate.of(y, m, d);
+    
+        	
     		ReserveDto rdto=new ReserveDto();
         	rdto.setId(rs.getInt("id"));
         	rdto.setInday(rs.getString("inday"));
@@ -208,7 +217,10 @@ public class ReserveDao {
         	rdto.setTotal(rs.getInt("total"));
         	rdto.setWriteday(rs.getString("writeday"));
         	rdto.setBang(rs.getString("bang"));
-        	rdto.setState(rs.getInt("state"));
+        	if(today.isBefore(dday))
+        	  rdto.setState(rs.getInt("state"));
+        	else
+        	  rdto.setState(3);
         	rlist.add(rdto);
     	}
     	 

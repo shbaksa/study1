@@ -86,7 +86,7 @@ public class MemberDao {
     	String pwd=request.getParameter("pwd");
     	
     	// 쿼리 생성
-    	String sql="select * from member where userid=? and pwd=?";
+    	String sql="select * from member where userid=? and pwd=? and state=0";
     	
     	// 심부름꾼 생성
     	pstmt=conn.prepareStatement(sql);
@@ -331,6 +331,33 @@ public class MemberDao {
     		session.setAttribute("chk", "4");
     		response.sendRedirect("login.jsp");
     	}
+    }
+    
+    // 회원탈퇴신청
+    public void member_out(HttpSession session,HttpServletResponse response) throws Exception
+    {
+    	// member테이블의 state필드의 값을 1로 변경
+    	String userid=session.getAttribute("userid").toString();
+    	
+    	// 쿼리 생성
+    	String sql="update member set state=1 where userid=?";
+    	
+    	// 심부름꾼 생성
+    	pstmt=conn.prepareStatement(sql);
+    	pstmt.setString(1, userid);
+    	
+    	// 쿼리 실행
+    	pstmt.executeUpdate();
+    	
+    	// close
+    	pstmt.close();
+    	conn.close();
+    	
+    	// 로그아웃
+    	session.invalidate();
+    	
+    	// 이동
+    	response.sendRedirect("../main/index.jsp");
     }
 }
 

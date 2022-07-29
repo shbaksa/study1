@@ -20,13 +20,13 @@ mdao.member_info(session, request);
 <div id="member_info_section">
 	<!-- 아이디, 이름, 이메일, 전화번호 보여주기 -->
 	<form method="post" action="../member/info_ok.jsp">
-		<table align="center" >
+		<table width="400" align="center" >
 			<caption>
 				<h2>회원정보</h2>
 			</caption>
 			<tr>
-				<td>아이디</td>
-				<td>${mdto.userid}</td>
+				<td width="100">아이디</td>
+				<td width="300">${mdto.userid}</td>
 			</tr>
 			<tr>
 				<td>이름</td>
@@ -43,7 +43,9 @@ mdao.member_info(session, request);
 			<tr>
 				<td colspan="2">
 				<span class="btn" onclick="location='../member/info_change.jsp'">정보 수정</span>
-				<span class="btn" onclick="location='../member/pwd_change.jsp'">비밀번호 변경</span></td>
+				<span class="btn" onclick="location='../member/pwd_change.jsp'">비밀번호 변경</span>
+				<span class="btn" onclick="location='../member/member_out.jsp'"> 회원탈퇴 </span>
+				</td>
 			</tr>
 
 		</table>

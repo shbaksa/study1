@@ -30,6 +30,7 @@
     width:1100px;
     height:60px;
     margin:auto;
+    
 /*     background:yellow; */
   }
   #second > #left {
@@ -48,7 +49,8 @@
     list-style-type:none;
     display:inline-block;
     width:140px;
-    font-size:15px;
+    font-size:13px;
+    
   }
   #second > #right > ul > li:last-child {  /* 마지막 li태그의 길이는 크게 */
     width:250px;
@@ -166,12 +168,53 @@
          <!-- 로그인을 한 경우 -->
           ${name}님 
           <a href="../member/logout.jsp"> 로그아웃 </a>
+         <c:if test="${userid != 'admin'}">
           <a href="../member/member_info.jsp"> 회원정보 </a> 
           <a href="../reserve/reserve_view.jsp?ck=1"> 예약현황 </a>
+         </c:if>
+         <c:if test="${userid == 'admin'}">
+          <div id="admin" onmouseover="admin_view()" onmouseout="admin_hide()"> 관리자 메뉴
+            <ul id="sub">
+              <li> <a href="../admin/room_view.jsp"> 객실관리 </a> </li>
+              <li> <a href="../admin/reserve_check.jsp"> 예약관리 </a> </li>
+              <li> <a href="../admin/member_check.jsp"> 회원관리 </a> </li>
+            </ul>
+          </div>
+         </c:if>
         </c:if>
         </li>
       </ul>
     </div>
+    <script>
+      function admin_view()
+      {
+    	  document.querySelector("#second #admin #sub").style.visibility="visible";
+    	  // css의 선택자를 사용할 수 있다  querySelectorAll()
+      }
+      function admin_hide()
+      {
+    	  document.querySelector("#second #admin #sub").style.visibility="hidden";
+      }
+    </script>
+    <style>
+      #second #admin {
+        display:inline-block;
+        position:relative;
+      }
+      #second #admin #sub {
+        position:absolute;
+        padding-left:0px;
+        background:white;
+        padding:8px;
+        visibility:hidden;
+        border:1px solid #cccccc;
+        width:60px;
+      }
+      #second #admin #sub li {
+        list-style-type:none;
+        height:25px;
+      }
+    </style>
   </div>
   
   

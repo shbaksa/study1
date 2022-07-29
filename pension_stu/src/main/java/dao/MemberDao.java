@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionIdListener;
 import javax.servlet.jsp.JspWriter;
 
 import dto.MemberDto;
@@ -73,7 +74,7 @@ public class MemberDao {
 		userid = request.getParameter("userid");
 		pwd = request.getParameter("pwd");
 
-		sql = "select * from member where userid=? && pwd=?";
+		sql = "select * from member where userid=? && pwd=? && state=0";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, userid);
 		pstmt.setString(2, pwd);
@@ -291,6 +292,25 @@ public class MemberDao {
 			response.sendRedirect("../member/login.jsp");
 		}
 	}
+	
+	public void member_out(HttpServletResponse response, HttpSession session) throws Exception{
+		
+		sql = "update member set state=1 where userid=?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, session.getAttribute("userid").toString());
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+		// 로그아웃		
+		session.invalidate();
+		
+		response.sendRedirect("../main/index.jsp");
+	}
+	
 }
 
 

@@ -8,6 +8,7 @@
 <style>
 #section{
 	width:1100px;
+	height:500px;
 	margin:auto;
 }
 
